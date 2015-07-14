@@ -11,16 +11,28 @@
     
 
     
-    <meta name="description" content="Web | Blog">
+    <meta name="description" content="记得使用mysqli_close()
+
+ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。
+
+mysql语句，不支持php的多维数组，对于$array[0][‘col’]，要变成$col=$array[0] $query=”select  from table where col = $col[col]”, 而$query=”select  from t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL要点记录">
 <meta property="og:url" content="http://yoursite.com/2015/05/29/MySQL要点记录/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
-<meta property="og:description" content="Web | Blog">
-<meta property="og:updated_time" content="2015-05-29T06:27:40.269Z">
+<meta property="og:description" content="记得使用mysqli_close()
+
+ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。
+
+mysql语句，不支持php的多维数组，对于$array[0][‘col’]，要变成$col=$array[0] $query=”select  from table where col = $col[col]”, 而$query=”select  from t">
+<meta property="og:updated_time" content="2015-06-08T09:17:57.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL要点记录">
-<meta name="twitter:description" content="Web | Blog">
+<meta name="twitter:description" content="记得使用mysqli_close()
+
+ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。
+
+mysql语句，不支持php的多维数组，对于$array[0][‘col’]，要变成$col=$array[0] $query=”select  from table where col = $col[col]”, 而$query=”select  from t">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -100,7 +112,23 @@
 		
 		</div>
 		
-		  
+		<ol>
+<li><p>记得使用mysqli_close()</p>
+</li>
+<li><p>ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。</p>
+</li>
+<li><p>mysql语句，不支持php的多维数组，对于$array[0][‘col’]，要变成$col=$array[0] $query=”select <em> from table where col = $col[col]”, 而$query=”select </em> from table where col = $array[0][‘col’]”是不管用的</p>
+</li>
+<li><p>规范化数据库：<br>（1）确保列具有原子性（即一列不能有数据类型相同的多个值）<br>（2）每个表都有自己的主键<br>（3）确保非键的列不相互依赖（非必须遵守）（不懂）</p>
+</li>
+<li><p>确保应用安全，应对特定用户使用不同的数据库的管理权限</p>
+</li>
+<li><p>查看数据库错误，使用var_dump(mysqli_error());</p>
+</li>
+<li><p>alter table table_name AUTO_INCREMENT=n</p>
+</li>
+</ol>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -125,6 +153,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/06/07/php的數組操作/" title="php的數組操作">
+  <strong>上一篇：</strong><br/>
+  <span>
+  php的數組操作</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/05/29/php的一些记录/"  title="php的一些记录">
@@ -158,7 +194,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
+			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -171,7 +207,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+				<li><a href="/tags/php/" title="php">php<sup>2</sup></a></li>
 			
 		
 		</ul>

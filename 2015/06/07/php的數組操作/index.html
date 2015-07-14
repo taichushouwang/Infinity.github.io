@@ -4,22 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Infinity&#39; s blog</title>
+    <title>php的數組操作 | Infinity&#39; s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Infinity">
     
 
     
-    <meta name="description" content="Web | Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Infinity' s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="合并数组array_merge()函数将数组合并到一起，返回一个联合的数组。所得到的数组以第一个输入数组参数开始，按后面数组参数出现的顺序依次迫加。其形式为：Php代码  收藏代码array array_merge (array array1 array2…,arrayN)  
+
+这个函数将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。如果输入的数组中有相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php的數組操作">
+<meta property="og:url" content="http://yoursite.com/2015/06/07/php的數組操作/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
-<meta property="og:description" content="Web | Blog">
+<meta property="og:description" content="合并数组array_merge()函数将数组合并到一起，返回一个联合的数组。所得到的数组以第一个输入数组参数开始，按后面数组参数出现的顺序依次迫加。其形式为：Php代码  收藏代码array array_merge (array array1 array2…,arrayN)  
+
+这个函数将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。如果输入的数组中有相">
+<meta property="og:updated_time" content="2015-06-07T15:51:51.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Infinity' s blog">
-<meta name="twitter:description" content="Web | Blog">
+<meta name="twitter:title" content="php的數組操作">
+<meta name="twitter:description" content="合并数组array_merge()函数将数组合并到一起，返回一个联合的数组。所得到的数组以第一个输入数组参数开始，按后面数组参数出现的顺序依次迫加。其形式为：Php代码  收藏代码array array_merge (array array1 array2…,arrayN)  
+
+这个函数将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。如果输入的数组中有相">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -73,12 +80,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2015/06/07/php的數組操作/" title="php的數組操作" itemprop="url">php的數組操作</a>
@@ -92,9 +97,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <ol>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<ol>
 <li>合并数组<br>array_merge()函数将数组合并到一起，返回一个联合的数组。所得到的数组以第一个输入数组参数开始，按后面数组参数出现的顺序依次迫加。其形式为：<br>Php代码  收藏代码<br>array array_merge (array array1 array2…,arrayN)  </li>
 </ol>
 <p>这个函数将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。<br>如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。<br>如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引。<br>&lt;?php<br>$fruits = array(“apple”,”banana”,”pear”);<br>$numbered = array(“1”,”2”,”3”);<br>$cards = array_merge($fruits, $numbered);<br>print_r($cards);  </p>
@@ -231,14 +243,9 @@
 </ol>
 <p>array_pop()函数删除并返回数组的最后一个元素。其形式为：<br>Php代码  收藏代码<br>mixed array_pop(aray target_array);  </p>
 <p>下面的例子从$states数组删除了最后的一个州：<br>Php代码  收藏代码<br>$fruits = array(“apple”,”banana”,”orange”,”pear”);<br>$fruit = array_pop($fruits);<br>//$fruits = array(“apple”,”banana”,”orange”);<br>//$fruit = “pear”;  </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -256,305 +263,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2015/06/07/php的數組操作/" data-title="php的數組操作 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/29/MySQL要点记录/" title="MySQL要点记录" itemprop="url">MySQL要点记录</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T06:20:46.000Z" itemprop="datePublished"> 发表于 2015-05-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>记得使用mysqli_close()</p>
-</li>
-<li><p>ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。</p>
-</li>
-<li><p>mysql语句，不支持php的多维数组，对于$array[0][‘col’]，要变成$col=$array[0] $query=”select <em> from table where col = $col[col]”, 而$query=”select </em> from table where col = $array[0][‘col’]”是不管用的</p>
-</li>
-<li><p>规范化数据库：<br>（1）确保列具有原子性（即一列不能有数据类型相同的多个值）<br>（2）每个表都有自己的主键<br>（3）确保非键的列不相互依赖（非必须遵守）（不懂）</p>
-</li>
-<li><p>确保应用安全，应对特定用户使用不同的数据库的管理权限</p>
-</li>
-<li><p>查看数据库错误，使用var_dump(mysqli_error());</p>
-</li>
-<li><p>alter table table_name AUTO_INCREMENT=n</p>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/05/29/MySQL要点记录/"  title="MySQL要点记录">
+ <strong>下一篇：</strong><br/> 
+ <span>MySQL要点记录
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/29/php的一些记录/" title="php的一些记录" itemprop="url">php的一些记录</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T03:35:20.000Z" itemprop="datePublished"> 发表于 2015-05-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="使用技巧">使用技巧</h3><ol>
-<li>超级全局变量：$_SERVER</li>
-<li>单引号和双引号区别——变量会被解析，一般用单引号，在mysql语句中用双引号。在HTML的时候，用单引号</li>
-<li>header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);</li>
-<li>數組操作，見php的數組操作</li>
-</ol>
-<h3 id="基本语法">基本语法</h3><ol>
-<li><p>所有 php 的脚本都是以 &lt;?php 开始，以 ?&gt; 结束，编译器根据这两个标签来判断 php 程序。</p>
-</li>
-<li><p>php直接使用变量，不需要经过声明，所以使用的时候，尽可能使用不同的变量名</p>
-</li>
-<li><p>封装：直接require once”.php”，就可以使用里面的函数或者变量</p>
-</li>
-<li><p>数组实际上是一个有序映射，可以是各种结构。key可以是integer或者string（会被强制类型转换）。value可以是任意类型。重复键名使用最后一个。</p>
-</li>
-<li><p>输出语句：<br> 5.1 var_dump($variable)<br> 可以输出变量的类型和值，但是对于多重数组<br> 比如，</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Array ([<span class="number">0</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">2</span></span><br><span class="line">	) </span><br><span class="line">	[<span class="number">1</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">1</span></span><br><span class="line">	)</span><br><span class="line">	[<span class="number">2</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">4</span></span><br><span class="line">	)</span><br><span class="line">	[<span class="number">3</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">3</span></span><br><span class="line">	)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p> 就会把[id]的值用省略号代替</p>
-<p> 5.2 </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>(<span class="variable">$string</span>); //输出字符串。</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> json_encode(array(<span class="string">'status'</span> =&gt; <span class="variable">$result</span>)); //在网站传递数据中传递json格式</span><br></pre></td></tr></table></figure>
-<p> 5.3 </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>_r(<span class="variable">$array</span>); //输出数组内容</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PHP中全局变量在函数中使用时必须声明为 global。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	<span class="variable">$a</span>  =  <span class="number">1</span> ;  /* global scope */</span><br><span class="line">	<span class="keyword">function</span>  <span class="function"><span class="title">Test</span></span> ()</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="built_in">echo</span>  <span class="variable">$a</span> ;  /* reference to <span class="built_in">local</span> scope variable */</span><br><span class="line">	&#125;</span><br><span class="line">	Test ();</span><br><span class="line">?&gt; </span><br><span class="line">//无输出</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">	<span class="variable">$a</span>  =  <span class="number">1</span> ;</span><br><span class="line">	include  <span class="string">'b.inc'</span> ;</span><br><span class="line">?&gt; </span><br><span class="line">//这里变量 <span class="variable">$a</span> 将会在包含文件 b.inc 中生效。</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">	<span class="variable">$a</span>  =  <span class="number">1</span> ;</span><br><span class="line">	<span class="variable">$b</span>  =  <span class="number">2</span> ;</span><br><span class="line">	<span class="keyword">function</span>  <span class="function"><span class="title">Sum</span></span> ()</span><br><span class="line">	&#123;</span><br><span class="line">	    global  <span class="variable">$a</span> ,  <span class="variable">$b</span> ;</span><br><span class="line">	     <span class="variable">$b</span>  =  <span class="variable">$a</span>  +  <span class="variable">$b</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	Sum ();</span><br><span class="line">	<span class="built_in">echo</span>  <span class="variable">$b</span> ;</span><br><span class="line">?&gt; </span><br><span class="line">//有输出</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置常量, 最好用define(‘CONST_VAR’, var);</p>
-</li>
-<li><p>foreach</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foreach (array_expression_r_r as <span class="variable">$value</span>) </span><br><span class="line">	statement </span><br><span class="line">//遍历给定的array_expression_r_r 数组。每次循环中，当前单元的值被赋给 <span class="variable">$value</span> 并且数组内部的指针向前移一步（因此下一次循环中将会得到下一个单元）。</span><br><span class="line">foreach (array_expression_r_r as <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">	statement</span><br><span class="line">//同上，只除了当前单元的键值也会在每次循环中被赋给变量 <span class="variable">$key</span>。 </span><br><span class="line">注<span class="number">1</span>: 当 foreach 开始执行时，数组内部的指针会自动指向第一个单元。</span><br><span class="line">注<span class="number">2</span>：foreach只能遍历数组，而不能改变数组</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>trim()，这个函数作用是去除字符串首尾的空格，有时候用户误在头尾多敲了空格，如果不去除的话就会出现关键字无法匹配，比如“你好 ”如果不去掉尾部空格就无法匹配关键字“你好”。<br> substr(string, start, [end]); 字符串截取<br> str_replace(tag, replace, $a_tag); 字符串替换</p>
-</li>
-</ol>
-<ol>
-<li><p>implode函数的使用方法为，implode(分隔符，数组)，将数组内元素转化成字符串，并将分隔符插入元素之间</p>
-</li>
-<li><p>注释：包含大量内容的 web 应用程序会影响加载时间（比如文本、链接、图像和脚本等等）。如果您不希望在内部链接页面，请使用外部文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"externalfile.html"</span>&gt;转到外部页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>isset($v1)判断v1是否赋值<br>empty($v1)判断v1是否为0，空串，false,和null<br>注：用if判断变量的时候，只要变量有值且不为为0，空串，false,和null，就会认为是对的<br>所以，在判断SQL语句的时候，不能用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$result</span> = <span class="variable">$this</span>-&gt;sql-&gt;ExecSQL(<span class="variable">$query1</span>) &amp;&amp; <span class="variable">$this</span>-&gt;sql-&gt;ExecSQL(<span class="variable">$query2</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>保护应用：</p>
-<pre><code>-<span class="ruby"> 一切表单提交的数据都要验证
-</span>-<span class="ruby"> 使用一些php的内置函数，比如strip_tags(), 删除所有的<span class="constant">HTML</span>标记
-</span>-<span class="ruby"> 尽可能的限制输入表单的内容</span>
-</code></pre></li>
-</ol>
-<p>注：<br>    教材参考《Head First PHP&amp;MySQL》<br>    最后一章关于如何订阅RSS和拉取YOUTUBE的视频</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/php/">php</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/php/">php</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/29/使用GitHub和Hexo写博客/" title="使用GitHub和Hexo写博客" itemprop="url">使用GitHub和Hexo写博客</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T03:20:30.000Z" itemprop="datePublished"> 发表于 2015-05-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/29/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T03:00:50.344Z" itemprop="datePublished"> 发表于 2015-05-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -676,12 +421,69 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 
@@ -742,4 +544,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
