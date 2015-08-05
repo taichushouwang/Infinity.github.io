@@ -96,13 +96,6 @@ Quick">
 </header>
 	<div class="article-content">
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-		
-		</div>
-		
 		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
@@ -170,7 +163,11 @@ Quick">
 		<ul>
 		
 		  
-			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/php/" title="php">php</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		</ul>
@@ -183,7 +180,33 @@ Quick">
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/php/" title="php">php<sup>2</sup></a></li>
+				<!-- <li><a href="/tags/php/" title="php">php<sup>2</sup></a></li> -->
+				<li><a href="/tags/php/" title="php">php</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
 			
 		
 		</ul>
@@ -193,24 +216,15 @@ Quick">
   
 
 
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
 </aside>
 </div>
     </div>
     <footer><div id="footer" >
 	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
+		<p> Hello, I&#39;m Infinity. <br/>
+			This is my blog, believe it or not.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
@@ -272,6 +286,11 @@ $(document).ready(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
   
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
   $(window).resize(function(){
     getSize(); 
     if (myWidth >= 1024) {
@@ -296,6 +315,11 @@ $(document).ready(function(){
       ta = $('#toc.toc-aside'),
       o  = $('.openaside'),
       c  = $('.closeaside');
+  //修改
+  //当默认不显示侧边栏的时候，直接显示目录
+  if(o.attr('style') == 'display: block;'){
+    ta.css('display', 'block').addClass('fadeIn');
+  }
   if(ai.length>0){
     ai.wrap('<div class="video-container" />');
   };
@@ -326,10 +350,11 @@ $(document).ready(function(){
   var html = [
   '<a href="#" class="overlay" id="qrcode"></a>',
   '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  //修改
+  //'<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  //'<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
   '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  //'<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
   '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
   '<span title="Share to"></span>'
   ].join('');

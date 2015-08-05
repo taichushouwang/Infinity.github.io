@@ -138,8 +138,11 @@ sup {
   vertical-align: baseline;
 }
 sup {
-  top: -0.5em;
-  padding-left: 0.3em;
+/*top -0.5em*/
+  padding-left: 1em;
+}
+span.sup {
+  float: right;
 }
 sub {
   bottom: -0.25em;
@@ -1709,7 +1712,7 @@ section.comment {
   border-bottom: 1px solid #ccc;
 }
 .categorieslist li a {
-  display: block;
+/*display block*/
   padding: 0.5em 5%;
 }
 .categorieslist li a:hover {
@@ -1971,7 +1974,7 @@ footer {
   width: 6.875em;
   height: 6.875em;
   margin: 0 auto;
-  background: no-repeat url("../img/author.jpg") left top;
+  background: no-repeat url("../") left top;
   -webkit-background-size: 6.875em 6.875em;
   -moz-background-size: 6.875em 6.875em;
   background-size: 6.875em 6.875em;

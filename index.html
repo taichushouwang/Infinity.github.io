@@ -75,477 +75,110 @@
     <div id="container">
       <div id="main">
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/07/php的數組操作/" title="php的數組操作" itemprop="url">php的數組操作</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-07T03:35:20.000Z" itemprop="datePublished"> 发表于 2015-06-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li>合并数组<br>array_merge()函数将数组合并到一起，返回一个联合的数组。所得到的数组以第一个输入数组参数开始，按后面数组参数出现的顺序依次迫加。其形式为：<br>Php代码  收藏代码<br>array array_merge (array array1 array2…,arrayN)  </li>
-</ol>
-<p>这个函数将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。<br>如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。<br>如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引。<br>&lt;?php<br>$fruits = array(“apple”,”banana”,”pear”);<br>$numbered = array(“1”,”2”,”3”);<br>$cards = array_merge($fruits, $numbered);<br>print_r($cards);  </p>
-<p>// output<br>// Array ( [0] =&gt; apple [1] =&gt; banana [2] =&gt; pear [3] =&gt; 1 [4] =&gt; 2 [5] =&gt; 3 )<br>?&gt;  </p>
-<ol>
-<li>追加数组<br>array_merge_recursive()函数与array_merge()相同，可以将两个或多个数组合并在一起，形成一个联合的数组．两者之间的区别在于，当某个输入数组中的某个键己经存在于结果数组中时该函数会采取不同的处理方式．array_merge()会覆盖前面存在的键/值对，替换为当前输入数组中的键/值对，而array_merge_recursive()将把两个值合并在一起，形成一个新的数组，并以原有的键作为数组名。还有一个数组合并的形式，就是递归追加数组。其形式为：<br>Php代码  收藏代码<br>array array_merge_recursive(array array1,array array2[…,array arrayN])  </li>
-</ol>
-<p>程序实例如下：<br>Php代码  收藏代码<br>&lt;?php<br>$fruit1 = array(“apple” =&gt; “red”, “banana” =&gt; “yellow”);<br>$fruit2 = array(“pear” =&gt; “yellow”, “apple” =&gt; “green”);<br>$result = array_merge_recursive($fruit1, $fruit2);<br>print_r($result);  </p>
-<p>// output<br>// Array ( [apple] =&gt; Array ( [0] =&gt; red [1] =&gt; green ) [banana] =&gt; yellow [pear] =&gt; yellow )<br>?&gt;  </p>
-<p>现在键 apple 指向一个数组，这个数组由两个颜色值组成的索引数组。</p>
-<ol>
-<li>连接数组<br>array_combine()函数会得到一个新数组，它由一组提交的键和对应的值组成。其形式为：<br>Java代码  收藏代码<br>array array_combine(array keys,array values)  </li>
-</ol>
-<p>注意，两个输入数组必须大小相同，不能为空。示例如下<br>Php代码  收藏代码<br>&lt;?php<br>$name = array(“apple”, “banana”, “orange”);<br>$color = array(“red”, “yellow”, “orange”);<br>$fruit = array_combine($name, $color);<br>print_r($fruit);  </p>
-<p>// output<br>// Array ( [apple] =&gt; red [banana] =&gt; yellow [orange] =&gt; orange )<br>?&gt;  </p>
-<ol>
-<li>拆分数组 array_slice()<br>array_slice()函数将返回数组中的一部分，从键offset开始，到offset+length位置结束。其形式：<br>Php代码  收藏代码<br>array array_slice (array array, int offset[,int length])  </li>
-</ol>
-<p>offset 为正值时，拆分将从距数组开头的offset 位置开始；如果offset 为负值，则拆分从距数组末尾的offset 位置开始。如果省略了可选参数length，则拆分将从offset 开始，一直到数组的最后一个元素。如果给出了length 且为正数，则会在距数组开头的offset+length 位置结束。相反，如果给出了length且为负数，则在距数组开头的count(input_array)-|length|位置结束。考虑一个例子：<br>Php代码  收藏代码<br>&lt;?php  </p>
-<p>$fruits = array(“Apple”, “Banana”, “Orange”, “Pear”, “Grape”, “Lemon”, “Watermelon”);<br>$subset = array_slice($fruits, 3);<br>print_r($subset);  </p>
-<p>// output<br>// Array ( [0] =&gt; Pear [1] =&gt; Grape [2] =&gt; Lemon [3] =&gt; Watermelon )<br>?&gt;  </p>
-<p>然后我们使用下负长度：<br>Php代码  收藏代码<br>&lt;?php  </p>
-<p>$fruits = array(“Apple”, “Banana”, “Orange”, “Pear”, “Grape”, “Lemon”, “Watermelon”);<br>$subset = array_slice($fruits, 2, -2);<br>print_r($subset);  </p>
-<p>// output<br>// Array ( [0] =&gt; Orange [1] =&gt; Pear [2] =&gt; Grape )<br>?&gt;  </p>
-<ol>
-<li>接合数组 array_splice()<br>array_splice()函数会删除数组中从offset开始到offset+length 结束的所有元素，并以数组的形式返回所删除的元素。其形式为：<br>Php代码  收藏代码<br>array array_splice ( array array , int offset[,length[,array replacement]])   </li>
-</ol>
-<p>offset 为正值时，则接合将从距数组开头的offset 位置开始，offset 为负值时，接合将从距数组末尾的offset 位置开始。如果忽略可选的length 参数，则从offset 位置开始到数组结束之间的所有元素都将被删除。如果给出了length 且为正值，则接合将在距数组开头的offset + leng th 位置结束。相反，如果给出了length且为负值，则结合将在距数组开头的count(input_array)-length的位置结束。实例如下：<br>Php代码  收藏代码<br>&lt;?php  </p>
-<p>$fruits = array(“Apple”, “Banana”, “Orange”, “Pear”, “Grape”, “Lemon”, “Watermelon”);<br>$subset = array_splice($fruits, 4);  </p>
-<p>print_r($fruits);<br>print_r($subset);  </p>
-<p>// output<br>// Array ( [0] =&gt; Apple [1] =&gt; Banana [2] =&gt; Orange [3] =&gt; Pear )<br>// Array ( [0] =&gt; Grape [1] =&gt; Lemon [2] =&gt; Watermelon )<br>?&gt;  </p>
-<p>可以使用可选参数replacement来指定取代目标部分的数组。实例如下：<br>Php代码  收藏代码<br>&lt;?php  </p>
-<p>$fruits = array(“Apple”, “Banana”, “Orange”, “Pear”, “Grape”, “Lemon”, “Watermelon”);<br>$subset = array_splice($fruits, 2, -1, array(“Green Apple”, “Red Apple”));  </p>
-<p>print_r($fruits);<br>print_r($subset);  </p>
-<p>// output<br>// Array ( [0] =&gt; Apple [1] =&gt; Banana [2] =&gt; Green Apple [3] =&gt; Red Apple [4] =&gt; Watermelon )<br>// Array ( [0] =&gt; Orange [1] =&gt; Pear [2] =&gt; Grape [3] =&gt; Lemon )<br>?&gt;  </p>
-<p>从程序可以很清楚看到这个函数的使用方法了。</p>
-<ol>
-<li>数组的交集 array_intersect()</li>
-</ol>
-<p>array_intersect()函数返回一个保留了键的数组，这个数组只由第一个数组中出现的且在其他每个输入数组中都出现的值组成。其形式如下：<br>Php代码  收藏代码<br>array array_intersect(array array1,array array2[,arrayN…])  </p>
-<p>下面这个例子将返回在$fruit1数组中出现的且在$fruit2和$fruit3中也出现的所有的水果：<br>Php代码  收藏代码<br>&lt;?php<br>$fruit1 = array(“Apple”,”Banana”,”Orange”);<br>$fruit2 = array(“Pear”,”Apple”,”Grape”);<br>$fruit3 = array(“Watermelon”,”Orange”,”Apple”);<br>$intersection = array_intersect($fruit1, $fruit2, $fruit3);<br>print_r($intersection);  </p>
-<p>// output<br>// Array ( [0] =&gt; Apple )<br>?&gt;  </p>
-<p>只有在两个元素相等且具有相同的数据类型时，array_intersect()函数才会认为它们是相同的。</p>
-<ol>
-<li>关联数组的交集 array_intersect_assoc()<br>函数array_intersect_assoc()与array_intersect()基本相同，只不过他在比较中还考虑了数组的键。因此，只有在第一个数组中出现，且在所有其他输入数组中也出现的键/值对才返回到结果数组中。<br>形式如下：<br>Php代码  收藏代码<br>array array_intersect_assoc(array array1,array array2[,arrayN…])  </li>
-</ol>
-<p>下面的例子返回了出现在$fruit1数组中，也同时出现在$fruit2与$fruit3中的所有键/值对：<br>Php代码  收藏代码<br>&lt;?php<br>$fruit1 = array(“red”=&gt;”Apple”,”yellow”=&gt;”Banana”,”orange”=&gt;”Orange”);<br>$fruit2 = array(“yellow”=&gt;”Pear”,”red”=&gt;”Apple”,”purple”=&gt;”Grape”);<br>$fruit3 = array(“green”=&gt;”Watermelon”,”orange”=&gt;”Orange”,”red”=&gt;”Apple”);<br>$intersection = array_intersect_assoc($fruit1, $fruit2, $fruit3);<br>print_r($intersection);  </p>
-<p>// output<br>// Array ( [red] =&gt; Apple )<br>?&gt;  </p>
-<ol>
-<li>数组的差集 array_diff()</li>
-</ol>
-<p>函数array_diff()返回出现在第一个数组中但其他输入数组中没有的值。这个功能与array_intersect()相反。<br>Php代码  收藏代码<br>array array_diff(array array1,array array2[,arrayN…])  </p>
-<p>实例如下：<br>Php代码  收藏代码<br>&lt;?php<br>$fruit1 = array(“Apple”,”Banana”,”Orange”);<br>$fruit2 = array(“Pear”,”Apple”,”Grape”);<br>$fruit3 = array(“Watermelon”,”Orange”,”Apple”);<br>$intersection = array_diff($fruit1, $fruit2, $fruit3);<br>print_r($intersection);  </p>
-<p>// output<br>// Array ( [1] =&gt; Banana )<br>?&gt;  </p>
-<ol>
-<li>关联数组的差集 array_diff_assoc()</li>
-</ol>
-<p>函数array_diff_assoc()与array_diff()基本相同，只是它在比较时还考虑了数组的键。因此，只在第一个数组中出现而不再其他输入数组中出现的键/值对才会返回到结果数组中。其形式如下：<br>Php代码  收藏代码<br>array array_diff_assoc(array array1,array array2[,arrayN…])  </p>
-<p>下面的例子只返回了[yellow] =&gt; Banana,因为这个特殊的键/值对出现在$fruit1中，而在$fruit2和$fruit3中都不存在。<br>Php代码  收藏代码<br>&lt;?php<br>$fruit1 = array(“red”=&gt;”Apple”,”yellow”=&gt;”Banana”,”orange”=&gt;”Orange”);<br>$fruit2 = array(“yellow”=&gt;”Pear”,”red”=&gt;”Apple”,”purple”=&gt;”Grape”);<br>$fruit3 = array(“green”=&gt;”Watermelon”,”orange”=&gt;”Orange”,”red”=&gt;”Apple”);<br>$intersection = array_diff_assoc($fruit1, $fruit2, $fruit3);<br>print_r($intersection);  </p>
-<p>// output<br>// Array ( [yellow] =&gt; Banana )<br>?&gt;  </p>
-<p>使用数组的过程中经常要遍历数组。通常需要遍历数组并获得各个键或值（或者同时获得键和值），所以毫不奇怪，PHP为此提供了一些函数来满足需求。许多函数能完成两项任务，不仅能获取当前指针位置的键或值，还能将指针移向下一个适当的位置。</p>
-<ol>
-<li>获取当前数组键 key()<br>key()函数返回input_array中当前指针所在位置的键。其形式如下：<br>Php代码  收藏代码<br>mixed key(array array)  </li>
-</ol>
-<p>下面的例子通过迭代处理数组并移动指针来输出$fruits数组的键：<br>Php代码  收藏代码<br>$fruits = array(“apple”=&gt;”red”, “banana”=&gt;”yellow”);<br>while ($key = key($fruits)) {<br>    printf(“%s <br>“, $key);<br>    next($fruits);<br>}  </p>
-<p>// apple<br>// banana  </p>
-<p>注意，每次调用key()时不会移动指针。为此需要使用next()函数，这个函数的唯一作用就是完成推进指针的任务。</p>
-<ol>
-<li>获取当前数组值 current()</li>
-</ol>
-<p>current()函数返回数组中当前指针所在位置的数组值。其形式如下：<br>Php代码  收藏代码<br>mixed current(array array)  </p>
-<p>下面修改前面的例子，这一次我们要获取数组值：<br>Php代码  收藏代码<br>$fruits = array(“apple”=&gt;”red”, “banana”=&gt;”yellow”);<br>while ($fruit = current($fruits)) {<br>    printf(“%s <br>“, $fruit);<br>    next($fruits);<br>}  </p>
-<p>// red<br>// yellow   </p>
-<ol>
-<li>获取当前数组键和值 each()</li>
-</ol>
-<p>each()函数返回input_array的当前键/值对，并将指针推进一个位置。其形式如下：<br>Php代码  收藏代码<br>array each(array array)  </p>
-<p>返回的数组包含四个键，键0和key包含键名，而键1和value包含相应的数据。如果执行each()前指针位于数组末尾，则返回false。<br>Php代码  收藏代码<br>$fruits = array(“apple”, “banana”, “orange”, “pear”);<br>print_r ( each($fruits) );  </p>
-<p>// Array ( [1] =&gt; apple [value] =&gt; apple [0] =&gt; 0 [key] =&gt; 0 )  </p>
-<p>each() 经常和 list() 结合使用来遍历数组。本例与上例类似，不过循环输出了整个数组：<br>Php代码  收藏代码<br>$fruits = array(“apple”, “banana”, “orange”, “pear”);<br>reset($fruits);  </p>
-<p>while (list($key, $val) = each($fruits))<br>    {<br>        echo “$key =&gt; $val<br>“;<br>    }  </p>
-<p>// 0 =&gt; apple<br>// 1 =&gt; banana<br>// 2 =&gt; orange<br>// 3 =&gt; pear  </p>
-<p>因为将一个数组赋值给另一个数组时会重置原来的数组指针，因此在上例中如果我们在循环内部将 $fruits 赋给了另一个变量的话将会导致无限循环。<br>这就完成了数组的遍历。</p>
-<p>查找、筛选与搜索数组元素是数组操作的一些常见功能。下面来介绍一下几个相关的函数。</p>
-<ol>
-<li>in_array()函数</li>
-</ol>
-<p>in_array()函数在一个数组汇总搜索一个特定值，如果找到这个值返回true，否则返回false。其形式如下：<br>Php代码  收藏代码<br>boolean in_array(mixed needle,array haystack[,boolean strict]);  </p>
-<p>来看下面的例子，查找变量apple是否已经在数组中，如果在，则输出一段信息：<br>Php代码  收藏代码<br>$fruit = “apple”;<br>$fruits = array(“apple”,”banana”,”orange”,”pear”);<br>if( in_array($fruit,$fruits) )<br>    echo “$fruit 已经在数组中”;  </p>
-<p>第三个参数可选，它强制in_array()在搜索时考虑类型。</p>
-<ol>
-<li>array_key_exists()函数</li>
-</ol>
-<p>如果在一个数组中找到一个指定的键，函数array_key_exists()返回true，否则返回false。其形式如下：<br>Php代码  收藏代码<br>boolean array_key_exists(mixed key,array array);  </p>
-<p>下面的例子将在数组键中搜索apple，如果找到，将输出这个水果的颜色：<br>Php代码  收藏代码<br>$fruit[“apple”] = “red”;<br>$fruit[“banana”] = “yellow”;<br>$fruit[“pear”] = “green”;<br>if(array_key_exists(“apple”, $fruit)){<br>    printf(“apple’s color is %s”,$fruit[“apple”]);<br>}  </p>
-<p>//apple’s color is red  </p>
-<ol>
-<li>array_search()函数</li>
-</ol>
-<p>array_search()函数在一个数组中搜索一个指定的值，如果找到则返回相应的键，否则返回false。其形式如下：<br>Php代码  收藏代码<br>mixed array_search(mixed needle,array haystack[,boolean strict])  </p>
-<p>下面的例子在$fruits中搜索一个特定的日期（December 7），如果找到，则返回相应州的有关信息：<br>Php代码  收藏代码<br>$fruits[“apple”] = “red”;<br>$fruits[“banana”] = “yellow”;<br>$fruits[“watermelon”]=”green”;<br>$founded = array_search(“green”, $fruits);<br>if($founded)<br>    printf(“%s was founded on %s.”,$founded, $fruits[$founded]);  </p>
-<p>//watermelon was founded on green.  </p>
-<ol>
-<li>array_keys()函数</li>
-</ol>
-<p>array_keys()函数返回一个数组，其中包含所搜索数组中找到的所有键。其形式如下：<br>Php代码  收藏代码<br>array array_keys(array array[,mixed search_value])  </p>
-<p>如果包含可选参数search_value，则只会返回与该值匹配的键。下面的例子将输出$fruit数组中找到的所有数组：<br>Php代码  收藏代码<br>$fruits[“apple”] = “red”;<br>$fruits[“banana”] = “yellow”;<br>$fruits[“watermelon”]=”green”;<br>$keys = array_keys($fruits);<br>print_r($keys);  </p>
-<p>//Array ( [0] =&gt; apple [1] =&gt; banana [2] =&gt; watermelon )  </p>
-<ol>
-<li>array_values()函数</li>
-</ol>
-<p>array_values()函数返回一个数组中的所有值，并自动为返回的数组提供数值索引。其形式如下：<br>Php代码  收藏代码<br>array array_values(array array)  </p>
-<p>下面的例子将获取$fruits中找到的各元素的值：<br>Php代码  收藏代码<br>$fruits[“apple”] = “red”;<br>$fruits[“banana”] = “yellow”;<br>$fruits[“watermelon”]=”green”;<br>$values = array_values($fruits);<br>print_r($values);  </p>
-<p>//Array ( [0] =&gt; red [1] =&gt; yellow [2] =&gt; green )  </p>
-<p>有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。</p>
-<p>PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另外一种数据结构，其中删除元素的顺序与加入时的顺序相反，这成为后进先出，或LIFO。</p>
-<ol>
-<li>在数组头添加元素</li>
-</ol>
-<p>array_unshift()函数在数组头添加元素。所有己有的数值键都会相应地修改，以反映其在数组中的新位置，但是关联键不受影响。其形式如下：<br>Php代码  收藏代码<br>int array_unshift(array array,mixed variable[,mixed variable])  </p>
-<p>下面这个例子在$fruits数组前面添加了两种水果：<br>Php代码  收藏代码<br>$fruits = array(“apple”,”banana”);<br>array_unshift($fruits,”orange”,”pear”)<br>// $fruits = array(“orange”,”pear”,”apple”,”banana”);  </p>
-<ol>
-<li>在数组尾添加元素</li>
-</ol>
-<p>array_push()函数的返回值是int型，是压入数据后数组中元素的个数，可以为此函数传递多个变量作为参数，同时向数组压入多个变量。其形式为：<br>Php代码  收藏代码<br>(array array,mixed variable [,mixed variable…])  </p>
-<p>下面这个例子在$fruits数组中又添加了两个水果：<br>Php代码  收藏代码<br>$fruits = array(“apple”,”banana”);<br>array_push($fruits,”orange”,”pear”)<br>//$fruits = array(“apple”,”banana”,”orange”,”pear”)  </p>
-<ol>
-<li>从数组头删除值</li>
-</ol>
-<p>array_shift()函数删除并返回数组中找到的元素。其结果是，如果使用的是数值健，则所有相应的值都会下移，而使用关联键的数组不受影响。其形式为<br>Php代码  收藏代码<br>mixed array_shift(array array)  </p>
-<p>下面的例子删除了$fruits数组中的第一个元素apple：<br>Php代码  收藏代码<br>$fruits = array(“apple”,”banana”,”orange”,”pear”);<br>$fruit = array_shift($fruits);<br>// $fruits = array(“banana”,”orange”,”pear”)<br>// $fruit = “apple”;  </p>
-<ol>
-<li>从数组尾删除元素</li>
-</ol>
-<p>array_pop()函数删除并返回数组的最后一个元素。其形式为：<br>Php代码  收藏代码<br>mixed array_pop(aray target_array);  </p>
-<p>下面的例子从$states数组删除了最后的一个州：<br>Php代码  收藏代码<br>$fruits = array(“apple”,”banana”,”orange”,”pear”);<br>$fruit = array_pop($fruits);<br>//$fruits = array(“apple”,”banana”,”orange”);<br>//$fruit = “pear”;  </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/php/">php</a>
-</div>
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/php/">php</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/29/MySQL要点记录/" title="MySQL要点记录" itemprop="url">MySQL要点记录</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T06:20:46.000Z" itemprop="datePublished"> 发表于 2015-05-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>记得使用mysqli_close()</p>
-</li>
-<li><p>ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。</p>
-</li>
-<li><p>mysql语句，不支持php的多维数组，对于$array[0][‘col’]，要变成$col=$array[0] $query=”select <em> from table where col = $col[col]”, 而$query=”select </em> from table where col = $array[0][‘col’]”是不管用的</p>
-</li>
-<li><p>规范化数据库：<br>（1）确保列具有原子性（即一列不能有数据类型相同的多个值）<br>（2）每个表都有自己的主键<br>（3）确保非键的列不相互依赖（非必须遵守）（不懂）</p>
-</li>
-<li><p>确保应用安全，应对特定用户使用不同的数据库的管理权限</p>
-</li>
-<li><p>查看数据库错误，使用var_dump(mysqli_error());</p>
-</li>
-<li><p>alter table table_name AUTO_INCREMENT=n</p>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/29/php的一些记录/" title="php的一些记录" itemprop="url">php的一些记录</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T03:35:20.000Z" itemprop="datePublished"> 发表于 2015-05-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="使用技巧">使用技巧</h3><ol>
-<li>超级全局变量：$_SERVER</li>
-<li>单引号和双引号区别——变量会被解析，一般用单引号，在mysql语句中用双引号。在HTML的时候，用单引号</li>
-<li>header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);</li>
-<li>數組操作，見php的數組操作</li>
-</ol>
-<h3 id="基本语法">基本语法</h3><ol>
-<li><p>所有 php 的脚本都是以 &lt;?php 开始，以 ?&gt; 结束，编译器根据这两个标签来判断 php 程序。</p>
-</li>
-<li><p>php直接使用变量，不需要经过声明，所以使用的时候，尽可能使用不同的变量名</p>
-</li>
-<li><p>封装：直接require once”.php”，就可以使用里面的函数或者变量</p>
-</li>
-<li><p>数组实际上是一个有序映射，可以是各种结构。key可以是integer或者string（会被强制类型转换）。value可以是任意类型。重复键名使用最后一个。</p>
-</li>
-<li><p>输出语句：<br> 5.1 var_dump($variable)<br> 可以输出变量的类型和值，但是对于多重数组<br> 比如，</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Array ([<span class="number">0</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">2</span></span><br><span class="line">	) </span><br><span class="line">	[<span class="number">1</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">1</span></span><br><span class="line">	)</span><br><span class="line">	[<span class="number">2</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">4</span></span><br><span class="line">	)</span><br><span class="line">	[<span class="number">3</span>] =&gt; Array</span><br><span class="line">	(</span><br><span class="line">		[id] =&gt; <span class="number">3</span></span><br><span class="line">	)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p> 就会把[id]的值用省略号代替</p>
-<p> 5.2 </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>(<span class="variable">$string</span>); //输出字符串。</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> json_encode(array(<span class="string">'status'</span> =&gt; <span class="variable">$result</span>)); //在网站传递数据中传递json格式</span><br></pre></td></tr></table></figure>
-<p> 5.3 </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>_r(<span class="variable">$array</span>); //输出数组内容</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PHP中全局变量在函数中使用时必须声明为 global。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	<span class="variable">$a</span>  =  <span class="number">1</span> ;  /* global scope */</span><br><span class="line">	<span class="keyword">function</span>  <span class="function"><span class="title">Test</span></span> ()</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="built_in">echo</span>  <span class="variable">$a</span> ;  /* reference to <span class="built_in">local</span> scope variable */</span><br><span class="line">	&#125;</span><br><span class="line">	Test ();</span><br><span class="line">?&gt; </span><br><span class="line">//无输出</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">	<span class="variable">$a</span>  =  <span class="number">1</span> ;</span><br><span class="line">	include  <span class="string">'b.inc'</span> ;</span><br><span class="line">?&gt; </span><br><span class="line">//这里变量 <span class="variable">$a</span> 将会在包含文件 b.inc 中生效。</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">	<span class="variable">$a</span>  =  <span class="number">1</span> ;</span><br><span class="line">	<span class="variable">$b</span>  =  <span class="number">2</span> ;</span><br><span class="line">	<span class="keyword">function</span>  <span class="function"><span class="title">Sum</span></span> ()</span><br><span class="line">	&#123;</span><br><span class="line">	    global  <span class="variable">$a</span> ,  <span class="variable">$b</span> ;</span><br><span class="line">	     <span class="variable">$b</span>  =  <span class="variable">$a</span>  +  <span class="variable">$b</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	Sum ();</span><br><span class="line">	<span class="built_in">echo</span>  <span class="variable">$b</span> ;</span><br><span class="line">?&gt; </span><br><span class="line">//有输出</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置常量, 最好用define(‘CONST_VAR’, var);</p>
-</li>
-<li><p>foreach</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foreach (array_expression_r_r as <span class="variable">$value</span>) </span><br><span class="line">	statement </span><br><span class="line">//遍历给定的array_expression_r_r 数组。每次循环中，当前单元的值被赋给 <span class="variable">$value</span> 并且数组内部的指针向前移一步（因此下一次循环中将会得到下一个单元）。</span><br><span class="line">foreach (array_expression_r_r as <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">	statement</span><br><span class="line">//同上，只除了当前单元的键值也会在每次循环中被赋给变量 <span class="variable">$key</span>。 </span><br><span class="line">注<span class="number">1</span>: 当 foreach 开始执行时，数组内部的指针会自动指向第一个单元。</span><br><span class="line">注<span class="number">2</span>：foreach只能遍历数组，而不能改变数组</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>trim()，这个函数作用是去除字符串首尾的空格，有时候用户误在头尾多敲了空格，如果不去除的话就会出现关键字无法匹配，比如“你好 ”如果不去掉尾部空格就无法匹配关键字“你好”。<br> substr(string, start, [end]); 字符串截取<br> str_replace(tag, replace, $a_tag); 字符串替换</p>
-</li>
-</ol>
-<ol>
-<li><p>implode函数的使用方法为，implode(分隔符，数组)，将数组内元素转化成字符串，并将分隔符插入元素之间</p>
-</li>
-<li><p>注释：包含大量内容的 web 应用程序会影响加载时间（比如文本、链接、图像和脚本等等）。如果您不希望在内部链接页面，请使用外部文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"externalfile.html"</span>&gt;转到外部页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>isset($v1)判断v1是否赋值<br>empty($v1)判断v1是否为0，空串，false,和null<br>注：用if判断变量的时候，只要变量有值且不为为0，空串，false,和null，就会认为是对的<br>所以，在判断SQL语句的时候，不能用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$result</span> = <span class="variable">$this</span>-&gt;sql-&gt;ExecSQL(<span class="variable">$query1</span>) &amp;&amp; <span class="variable">$this</span>-&gt;sql-&gt;ExecSQL(<span class="variable">$query2</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>保护应用：</p>
-<pre><code>-<span class="ruby"> 一切表单提交的数据都要验证
-</span>-<span class="ruby"> 使用一些php的内置函数，比如strip_tags(), 删除所有的<span class="constant">HTML</span>标记
-</span>-<span class="ruby"> 尽可能的限制输入表单的内容</span>
-</code></pre></li>
-</ol>
-<p>注：<br>    教材参考《Head First PHP&amp;MySQL》<br>    最后一章关于如何订阅RSS和拉取YOUTUBE的视频</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/php/">php</a>
-</div>
-
-
-  <div class="article-tags">
+<section class="post" itemscope itemprop="blogitem">
   
-  <span></span> <a href="/tags/php/">php</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <a href="/2015/06/07/php的數組操作/" title="php的數組操作" itemprop="url">
+  
+    <h1 itemprop="name">php的數組操作</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+      <p itemprop="description" >关于PHP数组的操作</p>
+      
     
-      <a href="/2015/05/29/使用GitHub和Hexo写博客/" title="使用GitHub和Hexo写博客" itemprop="url">使用GitHub和Hexo写博客</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T03:20:30.000Z" itemprop="datePublished"> 发表于 2015-05-29</time>
+    <time datetime="2015-06-07T03:35:20.000Z" itemprop="datePublished">2015-06-07</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/05/29/MySQL要点记录/" title="MySQL要点记录" itemprop="url">
+  
+    <h1 itemprop="name">MySQL要点记录</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >记得使用mysqli_close()
+
+ORDER BY col1 DESC, col2 ASC;先按col1降序，再按col2升序。
+
+mysql语句, 不支持php的多维数组, 在SELECT语句中的限定条件变量$array[0][‘col’]，要变成$col=$array[</p>
         
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+    <time datetime="2015-05-29T06:20:46.000Z" itemprop="datePublished">2015-05-29</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/05/29/php的一些记录/" title="php的一些记录" itemprop="url">
+  
+    <h1 itemprop="name">php的一些记录</h1>
     
-      <a href="/2015/05/29/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-29T03:00:50.344Z" itemprop="datePublished"> 发表于 2015-05-29</time>
+     
+           <p itemprop="description" >使用技巧
+超级全局变量：$_SERVER
+单引号和双引号区别——变量会被解析，一般用单引号，在mysql语句中用双引号。在HTML的时候，用单引号
+header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
+數組操作，見php的數組操作
+
+基</p>
+        
     
-  </p>
-</header>
-    <div class="article-content">
+    <time datetime="2015-05-29T03:35:20.000Z" itemprop="datePublished">2015-05-29</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/05/29/使用GitHub和Hexo写博客/" title="使用GitHub和Hexo写博客" itemprop="url">
+  
+    <h1 itemprop="name">使用GitHub和Hexo写博客</h1>
+    
+     
+           <p itemprop="description" ></p>
         
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    
+    <time datetime="2015-05-29T03:20:30.000Z" itemprop="datePublished">2015-05-29</time>
+  </a>
+</section>
 
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/05/29/hello-world/" title="Hello World" itemprop="url">
+  
+    <h1 itemprop="name">Hello World</h1>
+    
+     
+           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
         
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
+    
+    <time datetime="2015-05-29T03:00:50.344Z" itemprop="datePublished">2015-05-29</time>
+  </a>
+</section>
 
 
 
@@ -566,7 +199,11 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/php/" title="php">php</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		</ul>
@@ -579,7 +216,33 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/php/" title="php">php<sup>2</sup></a></li>
+				<!-- <li><a href="/tags/php/" title="php">php<sup>2</sup></a></li> -->
+				<li><a href="/tags/php/" title="php">php</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
 			
 		
 		</ul>
@@ -589,24 +252,15 @@
   
 
 
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
 </aside>
 </div>
     </div>
     <footer><div id="footer" >
 	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
+		<p> Hello, I&#39;m Infinity. <br/>
+			This is my blog, believe it or not.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
