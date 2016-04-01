@@ -27,7 +27,7 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 數組操作，見php的數組操作
 使用路径时，尽量使用’/‘(正斜线), 可以在Windows和UNIX上运行，而">
-<meta property="og:updated_time" content="2016-03-18T06:42:20.013Z">
+<meta property="og:updated_time" content="2016-04-01T03:38:08.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php的一些记录">
 <meta name="twitter:description" content="使用技巧
@@ -151,18 +151,10 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 <li>可以使用带序号的参数方式。<code>%2\$.2f</code>表示使用列表中的第二个参数替换。</li>
 </ul>
 </li>
-<li><pre><code><span class="comment">/*
-从外部直接访问属性是糟糕的想法。
-可以通过__get()和__set()来实现对属性的访问。
-并不会直接访问这些函数。
-而是依旧使用 $class-&gt;attribute来访问。
-但是变成了使用一段代码来访问特定的属性。
-*/</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__set</span><span class="params">(<span class="variable">$name</span>, <span class="variable">$value</span>)</span>
-</span>{
-    <span class="variable">$this</span>-&gt;<span class="variable">$name</span> = <span class="variable">$value</span>;
-}
-</code></pre></li>
+</ol>
+<p>13.<br>            /<em><br>            从外部直接访问属性是糟糕的想法。<br>            可以通过<strong>get()和</strong>set()来实现对属性的访问。<br>            并不会直接访问这些函数。<br>            而是依旧使用 $class-&gt;attribute来访问。<br>            但是变成了使用一段代码来访问特定的属性。
+            </em>/<br>            public function __set($name, $value)<br>            {<br>                $this-&gt;$name = $value;<br>            }</p>
+<ol>
 <li><p>注释：包含大量内容的 web 应用程序会影响加载时间（比如文本、链接、图像和脚本等等）。如果您不希望在内部链接页面，请使用外部文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"externalfile.html"</span>&gt;转到外部页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -297,13 +289,33 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
-				<li><a href="/tags/博客/" title="博客">博客</a></li>
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li> -->
+				<li><a href="/tags/sublime/" title="sublime">sublime</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
@@ -317,28 +329,8 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 			
 		
 			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li> -->
-				<li><a href="/tags/sublime/" title="sublime">sublime</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
-				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
-				<li><a href="/tags/数组/" title="数组">数组</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
@@ -347,8 +339,8 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 			
 		
 			
-				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
+				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
 			
 		
 		</ul>
