@@ -27,7 +27,7 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 數組操作，見php的數組操作
 使用路径时，尽量使用’/‘(正斜线), 可以在Windows和UNIX上运行，而">
-<meta property="og:updated_time" content="2015-09-09T05:11:58.795Z">
+<meta property="og:updated_time" content="2016-03-18T06:42:20.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php的一些记录">
 <meta name="twitter:description" content="使用技巧
@@ -47,7 +47,7 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -55,10 +55,6 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
       
 <div>
 		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="Infinity&#39; s blog" title="Infinity&#39; s blog"/></a>
-			</div>
-			
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="Infinity&#39; s blog">Infinity&#39; s blog</a></h1>
 				<h2 class="blog-motto"></h2>
@@ -114,8 +110,7 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 <li>header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);</li>
 <li>數組操作，見<a href="/2015/06/07/php的數組操作">php的數組操作</a></li>
 <li>使用路径时，尽量使用’/‘(正斜线), 可以在Windows和UNIX上运行，而’\’(反斜线)只能在Windows上运行</li>
-</ol>
-<h3 id="基本语法">基本语法</h3><ol>
+<li><a href="&#39;http://www.cnblogs.com/languoliang/archive/2013/03/13/php_curl.html&#39;">cURL的使用</a><h3 id="基本语法">基本语法</h3></li>
 <li><p>所有 php 的脚本都是以 &lt;?php 开始，以 ?&gt; 结束，编译器根据这两个标签来判断 php 程序。</p>
 </li>
 <li><p>php直接使用变量，不需要经过声明，所以使用的时候，尽可能使用不同的变量名</p>
@@ -133,12 +128,12 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 <p>注：print比echo速度要慢</p>
 <ol>
 <li><p>PHP中全局变量在函数中使用时必须声明为 global。</p>
- <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">1</span>;  <span class="comment">/* global scope */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span>  <span class="variable">$a</span> ;  <span class="comment">/* reference to local scope variable */</span></span><br><span class="line">&#125;</span><br><span class="line">Test ();</span><br><span class="line"><span class="comment">//无输出</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>  =  <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">include</span>  <span class="string">'b.inc'</span> ;</span><br><span class="line"><span class="comment">//这里变量 $a 将会在包含文件 b.inc 中生效。</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>  =  <span class="number">1</span> ;</span><br><span class="line"><span class="variable">$b</span>  =  <span class="number">2</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">Sum</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">global</span>  <span class="variable">$a</span> ,  <span class="variable">$b</span> ;</span><br><span class="line">     <span class="variable">$b</span>  =  <span class="variable">$a</span>  +  <span class="variable">$b</span> ;</span><br><span class="line">&#125;</span><br><span class="line">Sum ();</span><br><span class="line"><span class="keyword">echo</span>  <span class="variable">$b</span> ;</span><br><span class="line"><span class="preprocessor">?&gt;</span> </span><br><span class="line"><span class="comment">//有输出</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a = <span class="number">1</span>;  <span class="comment">/* global scope */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span>  $a ;  <span class="comment">/* reference to local scope variable */</span></span><br><span class="line">&#125;</span><br><span class="line">Test ();</span><br><span class="line"><span class="comment">//无输出</span></span><br><span class="line"></span><br><span class="line">$a  =  <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">include</span>  <span class="string">'b.inc'</span> ;</span><br><span class="line"><span class="comment">//这里变量 $a 将会在包含文件 b.inc 中生效。</span></span><br><span class="line"></span><br><span class="line">$a  =  <span class="number">1</span> ;</span><br><span class="line">$b  =  <span class="number">2</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">Sum</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">global</span>  $a ,  $b ;</span><br><span class="line">     $b  =  $a  +  $b ;</span><br><span class="line">&#125;</span><br><span class="line">Sum ();</span><br><span class="line"><span class="keyword">echo</span>  $b ;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"><span class="comment">//有输出</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置常量, 最好用<code>define(&#39;CONST_VAR&#39;, var);</code></p>
 </li>
 <li><p>foreach</p>
- <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (array_expression_r_r <span class="keyword">as</span> <span class="variable">$value</span>)</span><br><span class="line">  statement </span><br><span class="line"><span class="comment">//遍历给定的array_expression_r_r 数组。每次循环中，当前单元的值被赋给 $value 并且数组内部的指针向前移一步（因此下一次循环中将会得到下一个单元）。</span></span><br><span class="line"><span class="keyword">foreach</span> (array_expression_r_r <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">  statement</span><br><span class="line"><span class="comment">//同上，只除了当前单元的键值也会在每次循环中被赋给变量 $key。 </span></span><br><span class="line">注<span class="number">1</span>: 当 <span class="keyword">foreach</span> 开始执行时，数组内部的指针会自动指向第一个单元。</span><br><span class="line">注<span class="number">2</span>：<span class="keyword">foreach</span>只能遍历数组，而不能改变数组</span><br></pre></td></tr></table></figure>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (array_expression_r_r <span class="keyword">as</span> $value)</span><br><span class="line">  statement </span><br><span class="line"><span class="comment">//遍历给定的array_expression_r_r 数组。每次循环中，当前单元的值被赋给 $value 并且数组内部的指针向前移一步（因此下一次循环中将会得到下一个单元）。</span></span><br><span class="line"><span class="keyword">foreach</span> (array_expression_r_r <span class="keyword">as</span> $key =&gt; $value)</span><br><span class="line">  statement</span><br><span class="line"><span class="comment">//同上，只除了当前单元的键值也会在每次循环中被赋给变量 $key。 </span></span><br><span class="line">注<span class="number">1</span>: 当 <span class="keyword">foreach</span> 开始执行时，数组内部的指针会自动指向第一个单元。</span><br><span class="line">注<span class="number">2</span>：<span class="keyword">foreach</span>只能遍历数组，而不能改变数组</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>trim()</strong>这个函数作用是去除字符串首尾的空格，有时候用户误在头尾多敲了空格，如果不去除的话就会出现关键字无法匹配，比如“你好 ”如果不去掉尾部空格就无法匹配关键字“你好”。<br> <strong>substr(string, start, [end]);</strong> 字符串截取<br> <strong>str_replace(tag, replace, $a_tag);</strong> 字符串替换</p>
 </li>
@@ -156,6 +151,18 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 <li>可以使用带序号的参数方式。<code>%2\$.2f</code>表示使用列表中的第二个参数替换。</li>
 </ul>
 </li>
+<li><pre><code><span class="comment">/*
+从外部直接访问属性是糟糕的想法。
+可以通过__get()和__set()来实现对属性的访问。
+并不会直接访问这些函数。
+而是依旧使用 $class-&gt;attribute来访问。
+但是变成了使用一段代码来访问特定的属性。
+*/</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__set</span><span class="params">(<span class="variable">$name</span>, <span class="variable">$value</span>)</span>
+</span>{
+    <span class="variable">$this</span>-&gt;<span class="variable">$name</span> = <span class="variable">$value</span>;
+}
+</code></pre></li>
 <li><p>注释：包含大量内容的 web 应用程序会影响加载时间（比如文本、链接、图像和脚本等等）。如果您不希望在内部链接页面，请使用外部文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"externalfile.html"</span>&gt;转到外部页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -244,15 +251,35 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 		<ul>
 		
 		  
+			<li><a href="/categories/MVC/" title="MVC">MVC</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
 			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
 		  
 		
 		  
-			<li><a href="/categories/PHP/" title="PHP">PHP</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/PHP/" title="PHP">PHP</a><span class="sup"><sup>2</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>1</sup><span></li>
 		  
 		
 		  
 			<li><a href="/categories/php/" title="php">php</a><span class="sup"><sup>2</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/sublime/" title="sublime">sublime</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>1</sup><span></li>
 		  
 		
 		</ul>
@@ -265,23 +292,13 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 		<ul class="clearfix">
 		
 			
-				<!-- <li><a href="/tags/php/" title="php">php<sup>3</sup></a></li> -->
+				<!-- <li><a href="/tags/php/" title="php">php<sup>4</sup></a></li> -->
 				<li><a href="/tags/php/" title="php">php</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
-				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
@@ -295,8 +312,43 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 			
 		
 			
+				<!-- <li><a href="/tags/jQuery-html-css/" title="jQuery html css">jQuery html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/jQuery-html-css/" title="jQuery html css">jQuery html css</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li> -->
+				<li><a href="/tags/sublime/" title="sublime">sublime</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
+				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
+			
+		
+			
 				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
 				<li><a href="/tags/数组/" title="数组">数组</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
+				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
 			
 		
 		</ul>
@@ -314,7 +366,7 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 	
 	<section class="info">
 		<p> Hello, I&#39;m Infinity. <br/>
-			This is my blog, believe it or not.</p>
+			You can contact me by 564286889@qq.com</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
@@ -333,7 +385,7 @@ header(‘Location: ‘ . $_SERVER[‘HTTP_REFERER’]);
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Infinity">Infinity</a>
 		
