@@ -1,0 +1,519 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>前端翻页 | Infinity&#39; s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Infinity">
+    
+
+    
+    <meta name="description" content="本来翻页一般来说是后端的工作。奈何遇到一个新手坑，不会写分页数据。于是我就用了localStorage配合js写了个分页数据和翻页
+主要思路：  1.利用ajax从数据库获取所有数据。  2.将数据按一定数量分组编号，然后将数据存到localStorage中。 比如content[1], content[2], content[3]…  3.翻页的时候，就先remove内容，然后再append(l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端翻页">
+<meta property="og:url" content="http://yoursite.com/2016/04/14/前端翻页/index.html">
+<meta property="og:site_name" content="Infinity' s blog">
+<meta property="og:description" content="本来翻页一般来说是后端的工作。奈何遇到一个新手坑，不会写分页数据。于是我就用了localStorage配合js写了个分页数据和翻页
+主要思路：  1.利用ajax从数据库获取所有数据。  2.将数据按一定数量分组编号，然后将数据存到localStorage中。 比如content[1], content[2], content[3]…  3.翻页的时候，就先remove内容，然后再append(l">
+<meta property="og:updated_time" content="2016-04-14T07:47:48.071Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端翻页">
+<meta name="twitter:description" content="本来翻页一般来说是后端的工作。奈何遇到一个新手坑，不会写分页数据。于是我就用了localStorage配合js写了个分页数据和翻页
+主要思路：  1.利用ajax从数据库获取所有数据。  2.将数据按一定数量分组编号，然后将数据存到localStorage中。 比如content[1], content[2], content[3]…  3.翻页的时候，就先remove内容，然后再append(l">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Infinity&#39; s blog">Infinity&#39; s blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/14/前端翻页/" title="前端翻页" itemprop="url">前端翻页</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-14T07:35:20.000Z" itemprop="datePublished"> 发表于 2016-04-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<p>本来翻页一般来说是后端的工作。奈何遇到一个新手坑，不会写分页数据。于是我就用了localStorage配合js写了个分页数据和翻页</p>
+<p>主要思路：<br>  1.利用ajax从数据库获取所有数据。<br>  2.将数据按一定数量分组编号，然后将数据存到localStorage中。 比如content[1], content[2], content[3]…<br>  3.翻页的时候，就先remove内容，然后再append(localStorage).<br>缺点就是不能实时更新。一定要刷新。<br>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>历史留言<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width initial-scale=0.8 maximum-scale=1.0 user-scalable=yes"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/stylesheets/front_wechat/weui.min.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/stylesheets/front_wechat/base.css"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">id</span>=<span class="string">"historymesPage"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"weui_cells"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_cell"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"newNote"</span> <span class="attr">class</span>=<span class="string">"weui_cell_hd"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/front_wechat/icon/message.jpg"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_cell_bd"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h3</span>&gt;</span>历史留言<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"messageUl"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_cell"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"weui_cell_primary"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>留言总数：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"totalMessage"</span>&gt;</span>-<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_cell pageBtn"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"prePage"</span> <span class="attr">class</span>=<span class="string">"weui_btn weui_btn_plain_default"</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"curPage"</span> <span class="attr">class</span>=<span class="string">"pageNum"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"nextPage"</span> <span class="attr">class</span>=<span class="string">"weui_btn weui_btn_plain_default"</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"totalPage"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/javascripts/front_wechat/zepto.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/javascripts/front_wechat/test.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>base.css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#newNote</span> <span class="selector-tag">img</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">28px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h3</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#da5050</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.liHeader</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">13px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#da5050</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.liHeader</span> <span class="selector-tag">img</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">vertical-align</span>:text-bottom;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.liHeader</span> <span class="selector-class">.mesTitle</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.visiter</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">2px</span> solid <span class="number">#b2a9aa</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.9em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.identity</span>, <span class="selector-class">.name</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.identity</span> <span class="selector-tag">img</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">28px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.userHead</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">90px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.messageConTd</span><span class="selector-pseudo">:after</span>, <span class="selector-class">.reply</span><span class="selector-pseudo">:after</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">2px</span> solid <span class="number">#b2a9aa</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#D9D9D9</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.messageConTd</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.8em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.reply</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.5em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.messageCon</span>, <span class="selector-class">.replyTitle</span>, <span class="selector-class">.replyCon</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.totalMessage</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#da5050</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.pageBtn</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#page</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.pageNum</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> gray solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#curPage</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#da5050</span>;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>test.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    type: <span class="string">"get"</span>,</span><br><span class="line">    url: <span class="string">'/back_db/leavemessageinfo/queryByMemId?member_id='</span>+ <span class="string">'2'</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> totalMessage = <span class="built_in">parseInt</span>(data.length);</span><br><span class="line">      <span class="keyword">var</span> content = <span class="string">''</span>;</span><br><span class="line">      <span class="keyword">var</span> count = <span class="number">1</span>;</span><br><span class="line">      $.each(data, <span class="function"><span class="keyword">function</span>(<span class="params">i, message</span>) </span>&#123;</span><br><span class="line">        content +=</span><br><span class="line">          <span class="string">'&lt;div class="messageLi"&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;div class="weui_cell liHeader"&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;div class="weui_cell_hd weui_cell_primary"&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;span&gt;主题: &lt;/span&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;span class="mesTitle"&gt;'</span> + message.title + <span class="string">'&lt;/span&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;/div&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;div class=""&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;span&gt;&lt;img src="/images/front_wechat/icon/mestime.png"&gt; : &lt;/span&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;span class="mesTime"&gt;'</span> + message.leave_message_date + <span class="string">'&lt;/span&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;/div&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;/div&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;div class="weui_cell liContent"&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;input type="hidden" class="leaveMessageId" value="'</span> + message.leave_message_id + <span class="string">'"&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;table&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;tr&gt;'</span> +</span><br><span class="line">                  <span class="string">'&lt;td class="visiter" rowspan="2"&gt;'</span> +</span><br><span class="line">                    <span class="string">'&lt;img class="userHead" src="'</span> + message.member_image + <span class="string">'"&gt;'</span> +</span><br><span class="line">                    <span class="string">'&lt;p class="identity"&gt;'</span>+ <span class="string">'身份'</span> +<span class="string">'&lt;/p&gt;'</span> +</span><br><span class="line">                    <span class="string">'&lt;p class="name"&gt;'</span> + message.name + <span class="string">'&lt;/p&gt;'</span> +</span><br><span class="line">                  <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                  <span class="string">'&lt;td class="messageConTd"&gt;'</span> +</span><br><span class="line">                    <span class="string">'&lt;p class="messageCon"&gt;'</span> + message.message_content + <span class="string">'&lt;/p&gt;'</span> +</span><br><span class="line">                  <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;/tr&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;tr&gt;'</span> +</span><br><span class="line">                  <span class="string">'&lt;td class="reply"&gt;'</span> +</span><br><span class="line">                    <span class="string">'&lt;p class="replyTitle"&gt;管理员[admin]回复: 2015-5-16 9:41:39&lt;/p&gt;'</span> +</span><br><span class="line">                    <span class="string">'&lt;p class="replyCon"&gt;感谢您的关注&lt;/p&gt;'</span> +</span><br><span class="line">                  <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;/tr&gt;'</span> +</span><br><span class="line">              <span class="string">'&lt;/table&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;/div&gt;'</span> +</span><br><span class="line">          <span class="string">'&lt;/div&gt;'</span>;</span><br><span class="line">          <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">2</span>) &#123;</span><br><span class="line">            localStorage.setItem(<span class="string">'content['</span>+count+<span class="string">']'</span>, content);</span><br><span class="line">            count++;</span><br><span class="line">            content = <span class="string">''</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      localStorage.setItem(<span class="string">'content['</span>+count+<span class="string">']'</span>, content);</span><br><span class="line">      $(<span class="string">"#messageUl"</span>).append(localStorage.getItem(<span class="string">'content[0]'</span>));</span><br><span class="line">      $(<span class="string">".totalMessage"</span>)[<span class="number">0</span>].innerHTML = totalMessage;</span><br><span class="line">      <span class="keyword">var</span> totalPage = <span class="built_in">parseInt</span>(totalMessage / <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">var</span> page = <span class="string">''</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">2</span>; i &lt;= totalPage; i++) &#123;</span><br><span class="line">        page += <span class="string">'&lt;span class="pageNum"&gt;'</span> + i + <span class="string">'&lt;/span&gt;'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      $(<span class="string">"#totalPage"</span>).val(totalPage);</span><br><span class="line">      $(<span class="string">"#page"</span>).append(page);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">/*</span><br><span class="line"></span><br><span class="line">*/</span></span><br><span class="line">  $(<span class="string">"#newNote"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    location.href = <span class="string">"writenote"</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  $(<span class="string">"#prePage"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($(<span class="string">"#curPage"</span>)[<span class="number">0</span>].innerHTML != <span class="string">"1"</span>) &#123;</span><br><span class="line">      <span class="comment">//在这里，一开始没有使用变量element，直接就用$("#curPage"); 结果是，先设定了它前一个节点id=curPage，结果第二条语句获取的就是它的兄弟节点，而不是自己。</span></span><br><span class="line">      <span class="keyword">var</span> element = $(<span class="string">"#curPage"</span>);</span><br><span class="line">      element.prev().attr(<span class="string">"id"</span>, <span class="string">'curPage'</span>)</span><br><span class="line">      element.attr(<span class="string">"id"</span>, <span class="string">''</span>);</span><br><span class="line">      $(<span class="string">"#messageUl"</span>).children().remove();</span><br><span class="line">      $(<span class="string">"#messageUl"</span>).append(localStorage.getItem(<span class="string">'content['</span> + $(<span class="string">"#curPage"</span>)[<span class="number">0</span>].innerHTML + <span class="string">']'</span>));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  $(<span class="string">"#nextPage"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($(<span class="string">"#curPage"</span>)[<span class="number">0</span>].innerHTML != $(<span class="string">"#totalPage"</span>).val()) &#123;</span><br><span class="line">      <span class="keyword">var</span> element = $(<span class="string">"#curPage"</span>);</span><br><span class="line">      element.next().attr(<span class="string">"id"</span>, <span class="string">'curPage'</span>)</span><br><span class="line">      element.attr(<span class="string">"id"</span>, <span class="string">''</span>);</span><br><span class="line">      $(<span class="string">"#messageUl"</span>).children().remove();</span><br><span class="line">      $(<span class="string">"#messageUl"</span>).append(localStorage.getItem(<span class="string">'content['</span> + $(<span class="string">"#curPage"</span>)[<span class="number">0</span>].innerHTML + <span class="string">']'</span>));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/html/">html</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/jQuery-html/">jQuery html</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/04/14/前端翻页/" data-title="前端翻页 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/05/12/配置eclipse/" title="配置eclipse">
+  <strong>上一篇：</strong><br/>
+  <span>
+  配置eclipse</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/06/ThinkPHP相关记录/"  title="ThinkPHP相关记录">
+ <strong>下一篇：</strong><br/> 
+ <span>ThinkPHP相关记录
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/MVC/" title="MVC">MVC</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP</a><span class="sup"><sup>2</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html</a><span class="sup"><sup>3</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/php/" title="php">php</a><span class="sup"><sup>3</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/sublime/" title="sublime">sublime</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		  
+			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>1</sup><span></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<!-- <li><a href="/tags/php/" title="php">php<sup>4</sup></a></li> -->
+				<li><a href="/tags/php/" title="php">php</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/sublime/" title="sublime">sublime<sup>1</sup></a></li> -->
+				<li><a href="/tags/sublime/" title="sublime">sublime</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
+				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/jQuery-html-css/" title="jQuery html css">jQuery html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/jQuery-html-css/" title="jQuery html css">jQuery html css</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html<sup>1</sup></a></li> -->
+				<li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
+				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
+				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m Infinity. <br/>
+			You can contact me by 564286889@qq.com</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Infinity">Infinity</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  //修改
+  //当默认不显示侧边栏的时候，直接显示目录
+  if(o.attr('style') == 'display: block;'){
+    ta.css('display', 'block').addClass('fadeIn');
+  }
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  //修改
+  //'<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  //'<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  //'<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -21,7 +21,7 @@ console.log(object)可以查看object的相关内容。
 <meta property="og:description" content="window是一个对象，它包含了加载了的所有的js文件里的函数，使用window[function]可以调用相关函数。
 console.log(object)可以查看object的相关内容。
 来源：js 函数参数个数问题 1、调用函数时，如果参数多于定义时的个数，则多余的参数将会被忽略，如果少于定义时的个数则缺失的参数数会被自动赋予undefined值。 2、如果是用function语句声明的函">
-<meta property="og:updated_time" content="2016-04-01T03:39:40.284Z">
+<meta property="og:updated_time" content="2016-05-06T02:08:37.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的一些记录">
 <meta name="twitter:description" content="window是一个对象，它包含了加载了的所有的js文件里的函数，使用window[function]可以调用相关函数。
@@ -98,8 +98,7 @@ console.log(object)可以查看object的相关内容。
 		<ol>
 <li>window是一个对象，它包含了加载了的所有的js文件里的函数，使用<code>window[function]</code>可以调用相关函数。</li>
 <li><code>console.log(object)</code>可以查看object的相关内容。</li>
-<li><p>来源：<a href="http://jackielieu.blog.51cto.com/5586910/1158118" target="_blank" rel="external">js 函数参数个数问题</a><br> 1、调用函数时，如果参数多于定义时的个数，则多余的参数将会被忽略，如果少于定义时的个数则缺失的参数数会被自动赋予undefined值。<br> 2、如果是用function语句声明的函数定义则不可以出现在循环或条件语句中，但是如果是用函数直接量方法的函数定义则可以出现在任何js表达式中。<br> 3、arguments对象<br> 函数的arguments对象就像一个数组，里面保存着函数调用时的实际参数，可以用arguments[0]、arguments[1]、arguments[2]…等来引用这些参数，即使这些参数在定义函数时是没有的。但arguments并非真正的数组对象。</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x,y</span>)</span>{
+<li>来源：<a href="http://jackielieu.blog.51cto.com/5586910/1158118" target="_blank" rel="external">js 函数参数个数问题</a><br> 1、调用函数时，如果参数多于定义时的个数，则多余的参数将会被忽略，如果少于定义时的个数则缺失的参数数会被自动赋予undefined值。<br> 2、如果是用function语句声明的函数定义则不可以出现在循环或条件语句中，但是如果是用函数直接量方法的函数定义则可以出现在任何js表达式中。<br> 3、arguments对象<br> 函数的arguments对象就像一个数组，里面保存着函数调用时的实际参数，可以用arguments[0]、arguments[1]、arguments[2]…等来引用这些参数，即使这些参数在定义函数时是没有的。但arguments并非真正的数组对象。<pre><code><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x,y</span>)</span>{
  <span class="built_in">arguments</span>[<span class="number">0</span>]   <span class="comment">//表示第一个参数x</span>
  <span class="built_in">arguments</span>[<span class="number">1</span>]   <span class="comment">//表示第一个参数y</span>
  <span class="built_in">arguments</span>[<span class="number">2</span>]   <span class="comment">//表示第三个参数，前提是在调用函数时传入了三个参数 </span>
@@ -108,12 +107,23 @@ console.log(object)可以查看object的相关内容。
  <span class="built_in">arguments</span>.callee(x,y)   <span class="comment">//调用自身 }</span>
 <span class="built_in">arguments</span>对象具有length属性，表示的是函数调用时实际传入的参数的个数。
 <span class="built_in">arguments</span>对象还具有callee属性，用来引用当前正在执行的函数，这个在匿名函数中尤其有用。
-</code></pre><p> 4、函数的length属性（没错，函数也是具有length属性的）</p>
-<pre><code>与arguments.<span class="property">length</span>不同，函数的<span class="property">length</span>属性表示的是在定义函数时的形参个数，而不是函数调用时的实际参数个数。可以用arguments.callee.<span class="property">length</span>来调用函数的<span class="property">length</span>属性。
+</code></pre> 4、函数的length属性（没错，函数也是具有length属性的）<pre><code>与arguments.<span class="property">length</span>不同，函数的<span class="property">length</span>属性表示的是在定义函数时的形参个数，而不是函数调用时的实际参数个数。可以用arguments.callee.<span class="property">length</span>来调用函数的<span class="property">length</span>属性。
 </code></pre></li>
 <li><code>typeof()</code>, 可以用来检测变量的类型</li>
 <li>在each函数中，不能使用break和continue，用<code>return false</code>代替break，<code>return true</code>代替continue</li>
-<li>NaN “Not a Number”。出现这个数值比较少见，以至于我们可以不理它。当运算无法返回正确的数值时，就会返回“NaN”值。NaN 值非常特殊，因为它“不是数字”，所以任何数跟它都不相等，甚至 NaN 本身也不等于 NaN 。使用<code>isNaN(value)</code>来判断value，检查它是否为数值。</li>
+<li>NaN “Not a Number”。出现这个数值比较少见，以至于我们可以不理它。当运算无法返回正确的数值时，就会返回 “NaN” 值。NaN 值非常特殊，因为它“不是数字”，所以任何数跟它都不相等，甚至 NaN 本身也不等于 NaN 。使用<code>isNaN(value)</code>来判断value，当value是NaN, 字符串或对象时，也返回true。</li>
+<li><p><strong>字符串截取</strong><br>substr 方法 返回一个从指定位置开始的指定长度的子字符串。<br>stringvar.substr(start [, length ])<br>参数<br>stringvar 必选项。要提取子字符串的字符串文字或 String 对象。<br>start 必选项。所需的子字符串的起始位置。字符串中的第一个字符的索引为 0。<br>length 可选项。在返回的子字符串中应包括的字符个数。<br>说明<br>如果 length 为 0 或负数，将返回一个空字符串。如果没有指定该参数，则子字符串将延续到 stringvar 的最后。</p>
+<p>substring 方法<br>返回位于 String 对象中指定位置的子字符串。<br>strVariable.substring(start, end)<br>“String Literal”.substring(start, end)<br>参数<br>start<br>指明子字符串的起始位置，该索引从 0 开始起算。<br>end<br>指明子字符串的结束位置，该索引从 0 开始起算。<br>说明<br>substring 方法将返回一个包含从 start 到最后（不包含 end ）的子字符串的字符串。<br>substring 方法使用 start 和 end 两者中的较小值作为子字符串的起始点。例如， strvar.substring(0, 3) 和 strvar.substring(3, 0) 将返回相同的子字符串。<br>如果 start 或 end 为 NaN 或者负数，那么将其替换为0。<br>子字符串的长度等于 start 和 end 之差的绝对值。例如，在 strvar.substring(0, 3) 和 strvar.substring(3, 0) 返回的子字符串的的长度是 3。</p>
+</li>
+<li><strong>JSONP</strong> 怎么搞，跨域</li>
+<li><strong>字符串替换</strong> str.replace(“s”, “t”);</li>
+<li>JS有个Math对象，要试着去使用。</li>
+<li>JS采用的是IEEE-754浮点数表示法，这是一种二进制表示法。意味着不能精确表示1/10, 1/100这样的分数。例如x = 0.3 - 0.2; y = 0.2 - 0.1; x == y(返回是false); 由于舍入误差这两个近似值，实际上并不相等。</li>
+<li></li>
+</ol>
+<p>参考文献:</p>
+<ol>
+<li>《JavaScript权威指南》第6版</li>
 </ol>
   
 	</div>
@@ -203,7 +213,7 @@ console.log(object)可以查看object的相关内容。
 		  
 		
 		  
-			<li><a href="/categories/html/" title="html">html</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/html/" title="html">html</a><span class="sup"><sup>3</sup><span></li>
 		  
 		
 		  
@@ -211,7 +221,7 @@ console.log(object)可以查看object的相关内容。
 		  
 		
 		  
-			<li><a href="/categories/php/" title="php">php</a><span class="sup"><sup>2</sup><span></li>
+			<li><a href="/categories/php/" title="php">php</a><span class="sup"><sup>3</sup><span></li>
 		  
 		
 		  
@@ -237,8 +247,13 @@ console.log(object)可以查看object的相关内容。
 			
 		
 			
-				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
-				<li><a href="/tags/博客/" title="博客">博客</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
@@ -262,13 +277,13 @@ console.log(object)可以查看object的相关内容。
 			
 		
 			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
+				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
+				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
 			
 		
 			
@@ -277,8 +292,23 @@ console.log(object)可以查看object的相关内容。
 			
 		
 			
+				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html<sup>1</sup></a></li> -->
+				<li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html</a></li>
+			
+		
+			
 				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
 				<li><a href="/tags/前端/" title="前端">前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
 			
 		
 			
@@ -289,6 +319,11 @@ console.log(object)可以查看object的相关内容。
 			
 				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
 				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
 			
 		
 		</ul>

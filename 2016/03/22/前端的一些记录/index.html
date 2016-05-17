@@ -4,29 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>写网页的一些心得 | Infinity&#39; s blog</title>
+    <title>前端的一些记录 | Infinity&#39; s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Infinity">
     
 
     
-    <meta name="description" content="Sublime使用指南
-选择器 当使用选择器选择一些元素，是有多个类的时候，就直接$(.class1.class2)，中间不用空格，就是选中，CSS同理
-overflow（溢出） 可选值：值     描述visible 默认值。内容不会被修剪，会呈现在元素框之外。hidden     内容会被修剪，并且其余内容是不可见的。scroll     内容会被修剪，但是浏览器会显示滚动条以便查看其余的内">
+    <meta name="description" content="Media Query(CSS媒体查询)在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。
+remcss3中引入了新的长度单位, rem。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写网页的一些心得">
-<meta property="og:url" content="http://yoursite.com/2015/12/24/写网页的一些记录/index.html">
+<meta property="og:title" content="前端的一些记录">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/前端的一些记录/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
-<meta property="og:description" content="Sublime使用指南
-选择器 当使用选择器选择一些元素，是有多个类的时候，就直接$(.class1.class2)，中间不用空格，就是选中，CSS同理
-overflow（溢出） 可选值：值     描述visible 默认值。内容不会被修剪，会呈现在元素框之外。hidden     内容会被修剪，并且其余内容是不可见的。scroll     内容会被修剪，但是浏览器会显示滚动条以便查看其余的内">
-<meta property="og:updated_time" content="2016-05-17T07:00:53.006Z">
+<meta property="og:description" content="Media Query(CSS媒体查询)在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。
+remcss3中引入了新的长度单位, rem。">
+<meta property="og:updated_time" content="2016-05-17T02:48:15.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写网页的一些心得">
-<meta name="twitter:description" content="Sublime使用指南
-选择器 当使用选择器选择一些元素，是有多个类的时候，就直接$(.class1.class2)，中间不用空格，就是选中，CSS同理
-overflow（溢出） 可选值：值     描述visible 默认值。内容不会被修剪，会呈现在元素框之外。hidden     内容会被修剪，并且其余内容是不可见的。scroll     内容会被修剪，但是浏览器会显示滚动条以便查看其余的内">
+<meta name="twitter:title" content="前端的一些记录">
+<meta name="twitter:description" content="Media Query(CSS媒体查询)在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。
+remcss3中引入了新的长度单位, rem。">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -82,37 +79,34 @@ overflow（溢出） 可选值：值     描述visible 默认值。内容不会�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/24/写网页的一些记录/" title="写网页的一些心得" itemprop="url">写网页的一些心得</a>
+      <a href="/2016/03/22/前端的一些记录/" title="前端的一些记录" itemprop="url">前端的一些记录</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-24T14:35:20.000Z" itemprop="datePublished"> 发表于 2015-12-24</time>
+    <time datetime="2016-03-22T08:00:20.000Z" itemprop="datePublished"> 发表于 2016-03-22</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<ol>
-<li><a href="http://www.codeceo.com/article/sublime-text-guide.html" target="_blank" rel="external">Sublime使用指南</a></li>
-<li><strong>选择器</strong> 当使用选择器选择一些元素，是有多个类的时候，就直接$(.class1.class2)，中间不用空格，就是选中，CSS同理</li>
-<li><strong>overflow（溢出）</strong> 可选值：<br>值     描述<br>visible 默认值。内容不会被修剪，会呈现在元素框之外。<br>hidden     内容会被修剪，并且其余内容是不可见的。<br>scroll     内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。<br>auto     如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。<br>inherit     规定应该从父元素继承 overflow 属性的值。</li>
-<li><a href="http://my.oschina.net/lianyi/blog/48955?fromerr=WO10Nb9k" target="_blank" rel="external"><strong>CSS属性顺序</strong></a>：（布局定位属性–&gt;自身属性–&gt;文本属性–&gt;其他属性.）布局定位属性主要包括: margin &amp; padding &amp; float（包括clear）&amp; position（相应的 top,right,bottom,left） &amp; display &amp; visibility &amp; overflow等；自身属性主要包括: width &amp; height &amp; background &amp; border; 文本属性主要包括：font &amp; color &amp; text-align &amp; text-decoration &amp; text-indent等；其他属性包括: list-style(列表样式) &amp; vertical-vlign &amp; cursor &amp; z-index(层叠顺序) &amp; zoom等</li>
-<li>css长文字省略号的实现：overflow: hidden;    white-space:nowrap; text-overflow:ellipsis;</li>
-<li>一般HTML习惯是属性都用双引号。JS一般使用双引号，特殊情况使用单引号。</li>
-<li>父元素用px，相关子元素用em，使用query media根据屏幕大小调整字体</li>
-<li>尽量先把一个页面的跳转功能全部写完，再接着写其他的（暂定）</li>
-<li>| a:link {color: #FF0000} |     /<em> 未访问的链接 </em>/ |<br>|—-|—-|<br>| a:visited {color: #00FF00}|   /<em> 已访问的链接 </em>/   |<br>|—-|—-|<br>| a:hover {color: #FF00FF}|/<em> 当有鼠标悬停在链接上 </em>/|<br>|—-|—-|<br>| a:active {color: #0000FF} |  /<em> 被选择的链接 </em>/ |<br>|—-|—-|</li>
-<li>写形如<br> ‘’’aaa: bbbb<pre><code><span class="attribute">ccccc</span>: <span class="string">ddddd</span>
-</code></pre>这样子的时候，对齐的话就写成四个<p>，然后使用width: 50%，就可以将bbbb和ddddd对齐了</p></li>
-<li><a href="https://www.zhihu.com/question/19895400" target="_blank" rel="external">关于空格使用 &nbsp; 的讨论</a></li>
-<li><strong>关于命名习惯</strong> 使用驼峰吧</li>
-<li><strong>label标签</strong> 设定宽度是没有用的, 将display设置成inline-block就可以设置宽度了，但是还不能让它文字对齐。</li>
-<li>CSS不要再写<code>#id div a</code> 这样子的规则了，全都要用有意义的类名。比如设置display:none;的属性，可以设置一个class(displayNone)</li>
-<li><a href="/2016/05/17/我理解的开发流程">开发流程</a></li>
+		<h3 id="Media_Query(CSS媒体查询)">Media Query(CSS媒体查询)</h3><p>在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。</p>
+<h3 id="rem">rem</h3><p>css3中引入了新的长度单位, rem。<em>官方定义 font size of the root element</em>. rem和em单位一样，都是一个相对单位。不同的是em是相对于 <em>元素的父元素</em>的font-size进行计算；rem是相对于 _根元素_html的font-size进行计算。这样一来rem就绕开了复杂的层级关系，实现了类似于em单位的功能。</p>
+<h3 id="less">less</h3><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。Less 可以运行在 Node 或浏览器端。需要经过编译才能变成CSS，被调用。</p>
+<ol>
+<li>使用less去计算rem，会比直接在CSS中进行媒体判断简单一些。而且也省去了人工计算的麻烦。</li>
 </ol>
+<h3 id="jade模版引擎">jade<a href="https://segmentfault.com/a/1190000000357534" target="_blank" rel="external">模版引擎</a></h3><ol>
+<li>“包含”没看懂</li>
+<li></li>
+</ol>
+<h3 id="bootstrap_data-*属性">bootstrap data-*属性</h3><ol>
+<li>data-target和href的区别</li>
+<li>data-toggle所有值</li>
+</ol>
+<h3 id="gulp">gulp</h3><p>gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；gulp是基于Nodejs的自动任务运行器， 她能自动化地完成 javascript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,7 +120,7 @@ overflow（溢出） 可选值：值     描述visible 默认值。内容不会�
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/jQuery-html-css/">jQuery html css</a>
+  <span></span> <a href="/tags/html-css-前端/">html css 前端</a>
   </div>
 
 </div>
@@ -135,7 +129,7 @@ overflow（溢出） 可选值：值     描述visible 默认值。内容不会�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/12/24/写网页的一些记录/" data-title="写网页的一些心得 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/22/前端的一些记录/" data-title="前端的一些记录 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -149,18 +143,18 @@ overflow（溢出） 可选值：值     描述visible 默认值。内容不会�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/22/前端的一些记录/" title="前端的一些记录">
+ <a href="/2016/03/24/sublime记录/" title="sublime记录">
   <strong>上一篇：</strong><br/>
   <span>
-  前端的一些记录</span>
+  sublime记录</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/12/07/js的一些记录/"  title="js的一些记录">
+<a href="/2015/12/24/写网页的一些记录/"  title="写网页的一些心得">
  <strong>下一篇：</strong><br/> 
- <span>js的一些记录
+ <span>写网页的一些心得
 </span>
 </a>
 </div>
@@ -175,7 +169,7 @@ overflow（溢出） 可选值：值     描述visible 默认值。内容不会�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Media_Query(CSS媒体查询)"><span class="toc-number">1.</span> <span class="toc-text">Media Query(CSS媒体查询)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem"><span class="toc-number">2.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less"><span class="toc-number">3.</span> <span class="toc-text">less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jade模版引擎"><span class="toc-number">4.</span> <span class="toc-text">jade模版引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap_data-*属性"><span class="toc-number">5.</span> <span class="toc-text">bootstrap data-*属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp"><span class="toc-number">6.</span> <span class="toc-text">gulp</span></a></li></ol>
  
   </div>
 
