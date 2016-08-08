@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我理解的开发流程 | Infinity&#39; s blog</title>
+    <title>前端知识的一些记录 | Infinity&#39; s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Infinity">
     
 
     
-    <meta name="description" content="一个简单的开发流程1.拿到一份设计图和一份开发文档2.利用HTML和CSS和JS，使用一些框架，做出简单的静态的网站3.HTML用来填充内容，CSS用来布局和制作样式，JS用来完成动作和传递数据。
-一个比较复杂的开发流程1.拿到一份设计图和一份开发文档2.为了能兼容不同的浏览器，尤其是兼容PC端和移动端的样式显示，最简单的就是使用bootstrap框架，复杂一点的就使用less语言，可以编译生成C">
+    <meta name="description" content="记录的是一些跟前端方面的相关术语名词">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我理解的开发流程">
-<meta property="og:url" content="http://yoursite.com/2016/05/17/我理解的开发流程/index.html">
+<meta property="og:title" content="前端知识的一些记录">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/前端知识的一些记录/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
-<meta property="og:description" content="一个简单的开发流程1.拿到一份设计图和一份开发文档2.利用HTML和CSS和JS，使用一些框架，做出简单的静态的网站3.HTML用来填充内容，CSS用来布局和制作样式，JS用来完成动作和传递数据。
-一个比较复杂的开发流程1.拿到一份设计图和一份开发文档2.为了能兼容不同的浏览器，尤其是兼容PC端和移动端的样式显示，最简单的就是使用bootstrap框架，复杂一点的就使用less语言，可以编译生成C">
-<meta property="og:updated_time" content="2016-05-17T07:00:56.657Z">
+<meta property="og:description" content="记录的是一些跟前端方面的相关术语名词">
+<meta property="og:updated_time" content="2016-06-29T07:28:32.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我理解的开发流程">
-<meta name="twitter:description" content="一个简单的开发流程1.拿到一份设计图和一份开发文档2.利用HTML和CSS和JS，使用一些框架，做出简单的静态的网站3.HTML用来填充内容，CSS用来布局和制作样式，JS用来完成动作和传递数据。
-一个比较复杂的开发流程1.拿到一份设计图和一份开发文档2.为了能兼容不同的浏览器，尤其是兼容PC端和移动端的样式显示，最简单的就是使用bootstrap框架，复杂一点的就使用less语言，可以编译生成C">
+<meta name="twitter:title" content="前端知识的一些记录">
+<meta name="twitter:description" content="记录的是一些跟前端方面的相关术语名词">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -79,30 +76,48 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/17/我理解的开发流程/" title="我理解的开发流程" itemprop="url">我理解的开发流程</a>
+      <a href="/2016/03/22/前端知识的一些记录/" title="前端知识的一些记录" itemprop="url">前端知识的一些记录</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-17T06:35:20.000Z" itemprop="datePublished"> 发表于 2016-05-17</time>
+    <time datetime="2016-03-22T08:00:20.000Z" itemprop="datePublished"> 发表于 2016-03-22</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>一个简单的开发流程<br>1.拿到一份设计图和一份开发文档<br>2.利用HTML和CSS和JS，使用一些框架，做出简单的静态的网站<br>3.HTML用来填充内容，CSS用来布局和制作样式，JS用来完成动作和传递数据。</p>
-<p>一个比较复杂的开发流程<br>1.拿到一份设计图和一份开发文档<br>2.为了能兼容不同的浏览器，尤其是兼容PC端和移动端的样式显示，最简单的就是使用bootstrap框架，复杂一点的就使用less语言，可以编译生成CSS<br>3.为了后期的维护和扩展，JS和CSS需要进行模块化开发。<br>4.首先对于CSS可以写一个base.css的文件，里面包含了基础样式，对每个页面都适用。然后在命名上，也取跟样式相关的名字，尽量少使用功能名，多使用样式名。(比如对一个input标签来说，可以使用#name, .cell。#name就是功能名，是名字的输入，.cell就是样式名，包含了一定的样式特征)<br>5.对于JS，可以集成一些基础函数，比如我最常用的是localStorage。写的过程中，也要注意多于3次以上实现差不多的语句段，就可以集成成一个函数，进行调用。<br>6.当需要动态的页面时，需要使用模版进行开发。比如jade, jsp, underscore-templae.js, goodsTpl.<br>7.为了提高开发效率，使用gulp工具，对整个项目进行优化。</p>
+		<h3 id="Media_Query(CSS媒体查询)">Media Query(CSS媒体查询)</h3><p>在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。</p>
+<h3 id="rem">rem</h3><p>css3中引入了新的长度单位, rem。<em>官方定义 font size of the root element</em>. rem和em单位一样，都是一个相对单位。不同的是em是相对于 <em>元素的父元素</em>的font-size进行计算；rem是相对于 _根元素_html的font-size进行计算。这样一来rem就绕开了复杂的层级关系，实现了类似于em单位的功能。</p>
+<h3 id="less">less</h3><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。Less 可以运行在 Node 或浏览器端。需要经过编译才能变成CSS，被调用。</p>
+<ol>
+<li>使用less去计算rem，会比直接在CSS中进行媒体判断简单一些。而且也省去了人工计算的麻烦。</li>
+</ol>
+<h3 id="jade模版引擎">jade<a href="https://segmentfault.com/a/1190000000357534" target="_blank" rel="external">模版引擎</a></h3><ol>
+<li>“包含”没看懂</li>
+<li></li>
+</ol>
+<h3 id="bootstrap_data-*属性">bootstrap data-*属性</h3><ol>
+<li>data-target和href的区别</li>
+<li>data-toggle所有值</li>
+</ol>
+<h3 id="gulp">gulp</h3><p>gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；gulp是基于Nodejs的自动任务运行器， 她能自动化地完成 javascript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/html/">html</a>
+</div>
+
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/js-html-css/">js html css</a>
+  <span></span> <a href="/tags/html-css-前端/">html css 前端</a>
   </div>
 
 </div>
@@ -111,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/05/17/我理解的开发流程/" data-title="我理解的开发流程 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/22/前端知识的一些记录/" data-title="前端知识的一些记录 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -124,11 +139,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/03/24/sublime记录/" title="sublime记录">
+  <strong>上一篇：</strong><br/>
+  <span>
+  sublime记录</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/05/12/配置eclipse/"  title="配置eclipse">
+<a href="/2015/09/21/正则表达式/"  title="正则表达式">
  <strong>下一篇：</strong><br/> 
- <span>配置eclipse
+ <span>正则表达式
 </span>
 </a>
 </div>
@@ -143,7 +166,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Media_Query(CSS媒体查询)"><span class="toc-number">1.</span> <span class="toc-text">Media Query(CSS媒体查询)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem"><span class="toc-number">2.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less"><span class="toc-number">3.</span> <span class="toc-text">less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jade模版引擎"><span class="toc-number">4.</span> <span class="toc-text">jade模版引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap_data-*属性"><span class="toc-number">5.</span> <span class="toc-text">bootstrap data-*属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp"><span class="toc-number">6.</span> <span class="toc-text">gulp</span></a></li></ol>
  
   </div>
 
@@ -185,7 +208,7 @@
 		  
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		</ul>
@@ -203,18 +226,33 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
 				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
 				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
+				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
+				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
@@ -228,8 +266,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li> -->
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5</a></li>
 			
 		
 			
@@ -238,8 +281,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
-				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
 			
 		
 			
@@ -248,18 +291,18 @@
 			
 		
 			
-				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
-			
-		
-			
 				<!-- <li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html<sup>1</sup></a></li> -->
 				<li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/Axure/" title="Axure">Axure<sup>1</sup></a></li> -->
+				<li><a href="/tags/Axure/" title="Axure">Axure</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
+				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
 			
 		
 			
@@ -268,18 +311,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
-				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
-			
-		
-			
 				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
 				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
-				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
 			
 		
 		</ul>

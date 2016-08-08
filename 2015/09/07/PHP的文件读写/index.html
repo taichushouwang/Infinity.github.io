@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>前端的一些记录 | Infinity&#39; s blog</title>
+    <title>PHP的文件读写 | Infinity&#39; s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Infinity">
     
 
     
-    <meta name="description" content="Media Query(CSS媒体查询)在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。
-remcss3中引入了新的长度单位, rem。">
+    <meta name="description" content="PHP的文件读写相关函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端的一些记录">
-<meta property="og:url" content="http://yoursite.com/2016/03/22/前端的一些记录/index.html">
+<meta property="og:title" content="PHP的文件读写">
+<meta property="og:url" content="http://yoursite.com/2015/09/07/PHP的文件读写/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
-<meta property="og:description" content="Media Query(CSS媒体查询)在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。
-remcss3中引入了新的长度单位, rem。">
-<meta property="og:updated_time" content="2016-05-17T02:48:15.520Z">
+<meta property="og:description" content="PHP的文件读写相关函数">
+<meta property="og:updated_time" content="2016-06-29T07:33:10.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端的一些记录">
-<meta name="twitter:description" content="Media Query(CSS媒体查询)在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。
-remcss3中引入了新的长度单位, rem。">
+<meta name="twitter:title" content="PHP的文件读写">
+<meta name="twitter:description" content="PHP的文件读写相关函数">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -79,48 +76,92 @@ remcss3中引入了新的长度单位, rem。">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/22/前端的一些记录/" title="前端的一些记录" itemprop="url">前端的一些记录</a>
+      <a href="/2015/09/07/PHP的文件读写/" title="PHP的文件读写" itemprop="url">PHP的文件读写</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Infinity" target="_blank" itemprop="author">Infinity</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-22T08:00:20.000Z" itemprop="datePublished"> 发表于 2016-03-22</time>
+    <time datetime="2015-09-07T06:59:01.000Z" itemprop="datePublished"> 发表于 2015-09-07</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<h3 id="Media_Query(CSS媒体查询)">Media Query(CSS媒体查询)</h3><p>在CSS3中我们可以设置不同类型的媒体条件，并根据对应的条件，给相应符合条件的媒体调用相对应的样式表。可以同时给PC机的大屏幕和移动设备设置不同的样式表。这功能是非常强大的，他可以让你定制不同的分辨率和设备，并在不改变内容的情况下，让你制作的web页面在不同的分辨率和设备下都能显示正常，并且不会因此而丢失样式。</p>
-<h3 id="rem">rem</h3><p>css3中引入了新的长度单位, rem。<em>官方定义 font size of the root element</em>. rem和em单位一样，都是一个相对单位。不同的是em是相对于 <em>元素的父元素</em>的font-size进行计算；rem是相对于 _根元素_html的font-size进行计算。这样一来rem就绕开了复杂的层级关系，实现了类似于em单位的功能。</p>
-<h3 id="less">less</h3><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。Less 可以运行在 Node 或浏览器端。需要经过编译才能变成CSS，被调用。</p>
-<ol>
-<li>使用less去计算rem，会比直接在CSS中进行媒体判断简单一些。而且也省去了人工计算的麻烦。</li>
-</ol>
-<h3 id="jade模版引擎">jade<a href="https://segmentfault.com/a/1190000000357534" target="_blank" rel="external">模版引擎</a></h3><ol>
-<li>“包含”没看懂</li>
-<li></li>
-</ol>
-<h3 id="bootstrap_data-*属性">bootstrap data-*属性</h3><ol>
-<li>data-target和href的区别</li>
-<li>data-toggle所有值</li>
-</ol>
-<h3 id="gulp">gulp</h3><p>gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；gulp是基于Nodejs的自动任务运行器， 她能自动化地完成 javascript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。</p>
-  
+		<h3 id="打开文件">打开文件</h3><p><strong>resource fopen ( string $filename , string $mode [, bool $use_include_path = false [, resource $context ]] )</strong><br>$filename = 路径+文件名<br>$mode = <strong>r(只读)</strong> &nbsp; <strong>w(只写)</strong> &nbsp; <strong>a(追加)</strong><br><strong>注</strong>: 为移植性考虑，强烈建议在用 fopen() 打开文件时总是使用 ‘b’ 标记。<br>第三个参数是可选的。如果要在include_path中搜索一个文件，就设置为true，且不用提供目录名或路径<br>第四个参数是可选的。fopen()函数允许文件名称以协议名称开始 (例如，http://) 并且在一个远程位置打开文件。就要设置该参数</p>
+<p>如果fopen()成功打开一个文件，该函数将返回一个指向这个文件的文件指针。这个文件指针可以用来访问文件，进行读写。如果打开失败将返回<strong>false</strong>;</p>
+<h3 id="写文件"><a href="http://www.w3school.com.cn/php/func_filesystem_fwrite.asp" target="_blank" rel="external">写文件</a></h3><p><strong>int fwrite(resource $fp, string $outputstring [, int length]);</strong><br>$fp是文件指针，$outputstring存储将要写入文件的内容，写入的最大字符数</p>
+<h3 id="关闭文件">关闭文件</h3><p>文件访问完毕之后，一定要记得<strong>关闭文件</strong>。<br>使用<code>fclose($fp);</code>成功返回true，失败返回false。</p>
+<h3 id="读文件">读文件</h3><p><strong>feof($fp)</strong>用来判断文件指针是否已经指向了文件末尾<br><strong>fgets($fp, 999);</strong>从文件中每次读取一行内容。直到最后一个换行字符(\n)、或者文件结束符EOF，或者读取了998B<br><strong>fgetss($fp, length [, allowable_tags]);</strong>过滤字符串中包含的PHP和HTML标记，包含在$allowable_tags中用’,’隔开，就不会被过滤<br><strong>fgetcsv($fp, length [, string delimiter, string enclosure])</strong>$delimiter界定符，将读到的内容进行分行。$enclosure封闭每个域的字符，默认是”(双引号)。<br>【不常用】<strong>readfile($filename)</strong>将文件读到输出缓存中，且不需要fopen<br>【不常用】<strong>fpassthru($fp)</strong>将文件读取到输出缓存，需要fopen<br><strong>file($filename)</strong>将文件的每行作为数组的一个元素保存，返回一个数组<br><strong>fgetc($fp)</strong>读取一个字符<br><strong>fread($fp, $length)</strong>读取文件任意长度的字节</p>
+<h3 id="其他文件函数">其他文件函数</h3><p><strong>file_exists($filename)</strong>检查文件是否存在<br><strong>filesize($filename)</strong>查看文件的大小<br><strong>unlink($filename)</strong>删除文件，访问权限不够或者文件不存在，返回false<br><strong>rewind($fp)</strong>将文件指针复位到文件的开始<br><strong>ftell($fp)</strong>以字节为单位报告文件指针当前在文件中的位置<br><strong>fseek($fp, $offset [, $whence])</strong>将文件指针从whence位置移动offset个字节，默认为文件开始处。<br><strong>flock($fp, $operation [, $wouldblock])</strong>文件锁定。 </p>
+<table>
+<thead>
+<tr>
+<th>操作值</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOCK_SH</td>
+<td>读操作锁定</td>
+</tr>
+<tr>
+<td>LOCK_EX</td>
+<td>写操作锁定</td>
+</tr>
+<tr>
+<td>LOCK_UN</td>
+<td>释放已有的锁定</td>
+</tr>
+<tr>
+<td>LOCK_NB</td>
+<td>防止在请求加锁时发生阻塞</td>
+</tr>
+</tbody>
+</table>
+<p>  <strong>下面这一段代码，本意是用table标签做一个表格出来的，但是，不知什么原因，使用table，会在前面加入很多个<br>标签，具体原因有待发现</strong></p>
+<pre><code><span class="tag">&lt;<span class="title">table</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">thead</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">th</span>&gt;</span>操作值<span class="tag">&lt;/<span class="title">th</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">th</span>&gt;</span>意义<span class="tag">&lt;/<span class="title">th</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">thead</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">tbody</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>LOCK_SH<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>读操作锁定<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>LOCK_EX<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>写操作锁定<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>LOCK_UN<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>释放已有的锁定<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>LOCK_NB<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">td</span>&gt;</span>防止在请求加锁时发生阻塞<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/html/">html</a>
+  <a class="article-category-link" href="/categories/PHP/">PHP</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/html-css-前端/">html css 前端</a>
+  <span></span> <a href="/tags/php/">php</a><a href="/tags/文件读写/">文件读写</a>
   </div>
 
 </div>
@@ -129,7 +170,7 @@ remcss3中引入了新的长度单位, rem。">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/22/前端的一些记录/" data-title="前端的一些记录 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/09/07/PHP的文件读写/" data-title="PHP的文件读写 | Infinity&#39; s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,18 +184,18 @@ remcss3中引入了新的长度单位, rem。">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/24/sublime记录/" title="sublime记录">
+ <a href="/2015/09/21/正则表达式/" title="正则表达式">
   <strong>上一篇：</strong><br/>
   <span>
-  sublime记录</span>
+  正则表达式</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/12/24/写网页的一些记录/"  title="写网页的一些心得">
+<a href="/2015/06/07/php的數組操作/"  title="php的數組操作">
  <strong>下一篇：</strong><br/> 
- <span>写网页的一些心得
+ <span>php的數組操作
 </span>
 </a>
 </div>
@@ -169,7 +210,7 @@ remcss3中引入了新的长度单位, rem。">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Media_Query(CSS媒体查询)"><span class="toc-number">1.</span> <span class="toc-text">Media Query(CSS媒体查询)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem"><span class="toc-number">2.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less"><span class="toc-number">3.</span> <span class="toc-text">less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jade模版引擎"><span class="toc-number">4.</span> <span class="toc-text">jade模版引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap_data-*属性"><span class="toc-number">5.</span> <span class="toc-text">bootstrap data-*属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp"><span class="toc-number">6.</span> <span class="toc-text">gulp</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件"><span class="toc-number">1.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写文件"><span class="toc-number">2.</span> <span class="toc-text">写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭文件"><span class="toc-number">3.</span> <span class="toc-text">关闭文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读文件"><span class="toc-number">4.</span> <span class="toc-text">读文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他文件函数"><span class="toc-number">5.</span> <span class="toc-text">其他文件函数</span></a></li></ol>
  
   </div>
 
@@ -211,7 +252,7 @@ remcss3中引入了新的长度单位, rem。">
 		  
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		</ul>
@@ -229,18 +270,33 @@ remcss3中引入了新的长度单位, rem。">
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
 				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
 				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
+				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
+				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
@@ -254,8 +310,13 @@ remcss3中引入了新的长度单位, rem。">
 			
 		
 			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li> -->
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5</a></li>
 			
 		
 			
@@ -264,8 +325,8 @@ remcss3中引入了新的长度单位, rem。">
 			
 		
 			
-				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
-				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
 			
 		
 			
@@ -274,18 +335,18 @@ remcss3中引入了新的长度单位, rem。">
 			
 		
 			
-				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
-			
-		
-			
 				<!-- <li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html<sup>1</sup></a></li> -->
 				<li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/Axure/" title="Axure">Axure<sup>1</sup></a></li> -->
+				<li><a href="/tags/Axure/" title="Axure">Axure</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
+				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
 			
 		
 			
@@ -294,18 +355,13 @@ remcss3中引入了新的长度单位, rem。">
 			
 		
 			
-				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
-				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
-			
-		
-			
 				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
 				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
-				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
 			
 		
 		</ul>

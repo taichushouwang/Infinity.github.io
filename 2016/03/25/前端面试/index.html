@@ -11,22 +11,16 @@
     
 
     
-    <meta name="description" content="HTML/CSS
-什么是盒子模型？在网页中，一个元素占有空间的大小由几个部分构成，其中包括元素的内容(content)，元素的内边距(padding)，元素的边框(border)，元素的外边距(margin)四个部分。4个部分构成CSS的盒子模型。
-行内元素，块级元素，空元素行内元素: a、b、button、em、img、input、label、select、strong、span、textare">
+    <meta name="description" content="前端面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试题">
 <meta property="og:url" content="http://yoursite.com/2016/03/25/前端面试/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
-<meta property="og:description" content="HTML/CSS
-什么是盒子模型？在网页中，一个元素占有空间的大小由几个部分构成，其中包括元素的内容(content)，元素的内边距(padding)，元素的边框(border)，元素的外边距(margin)四个部分。4个部分构成CSS的盒子模型。
-行内元素，块级元素，空元素行内元素: a、b、button、em、img、input、label、select、strong、span、textare">
-<meta property="og:updated_time" content="2016-03-25T09:49:28.108Z">
+<meta property="og:description" content="前端面试题">
+<meta property="og:updated_time" content="2016-07-05T15:32:12.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题">
-<meta name="twitter:description" content="HTML/CSS
-什么是盒子模型？在网页中，一个元素占有空间的大小由几个部分构成，其中包括元素的内容(content)，元素的内边距(padding)，元素的边框(border)，元素的外边距(margin)四个部分。4个部分构成CSS的盒子模型。
-行内元素，块级元素，空元素行内元素: a、b、button、em、img、input、label、select、strong、span、textare">
+<meta name="twitter:description" content="前端面试题">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -112,7 +106,7 @@
 <h2 id="JavaScript">JavaScript</h2><ol>
 <li>创建节点<br><code>createDocumentFragment()</code>//创建一个DOM片段<br><code>createElement(nodename)</code>//创建一个具体的元素<br><code>createTextNode(text)</code>//创建一个文本节点</li>
 <li>添加、移除、替换、插入<br><code>appendChild(node对象)</code>//添加子节点<br><code>removeChild(node对象)</code>//移除并返回被删除的节点<br><code>replaceChild(newnode, oldnode)</code>//替换<br><code>insertBefore(newnode, existingnode)</code>//在子节点前插入新节点</li>
-<li>查找<br>getElementByTagName()//通过标签名称<br>getElementByName()//通过元素的name属性的值<br>getElementById()//通过元素id，唯一性</li>
+<li>查找<br><strong>注意！！！element后面到底有没有s!!!</strong><br>getElementsByClassName()//通过类名获得元素<br>getElementsByTagName()//通过标签名称<br>getElementsByName()//通过元素的name属性的值<br>getElementById()//通过元素id，唯一性</li>
 <li><p>实现一个函数clone, 可以对JavaScript中的5种主要的数据类型(包括Number、String、Object、Array、Boolen)进行值复制 <strong>（不懂！！！）</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span><br><span class="line"> * 对象克隆</span><br><span class="line"> * 支持基本数据类型及对象</span><br><span class="line"> * 递归方法</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o;</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">typeof</span> obj) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"undefined"</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"string"</span>:</span><br><span class="line">            o = obj + <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"number"</span>:</span><br><span class="line">            o = obj - <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"boolean"</span>:</span><br><span class="line">            o = obj;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"object"</span>: <span class="comment">// object 分为两种情况 对象（Object）或数组（Array）</span></span><br><span class="line">            <span class="keyword">if</span> (obj === <span class="literal">null</span>) &#123;</span><br><span class="line">                o = <span class="literal">null</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">"Array"</span>) &#123;</span><br><span class="line">                    o = [];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; obj.length; i++) &#123;</span><br><span class="line">                        o.push(clone(obj[i]));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    o = &#123;&#125;;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">                        o[k] = clone(obj[k]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            o = obj;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -122,7 +116,48 @@
 <li><p>如何实现一个对页面某个节点的拖拽(使用原生JS)</p>
 </li>
 </ol>
-<p>转载自<a href="http://www.cnblogs.com/bigboyLin/p/5272902.html" target="_blank" rel="external">2016年Web前端面试题目汇总 作者:_燎原之火</a></p>
+<h2 id="腾讯面试题">腾讯面试题</h2><ol>
+<li>求输出<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.a = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn.prototype = &#123;</span><br><span class="line">  b: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.a = <span class="number">20</span>;</span><br><span class="line">      alert(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;,</span><br><span class="line">  c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.a = <span class="number">30</span>;</span><br><span class="line">      alert(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myfn = <span class="keyword">new</span> fn();</span><br><span class="line">myfn.b();</span><br><span class="line">myfn.c();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>  输出：0，30<br>  即调用了fn().b, prototype的b没有被调用<br>  <strong>prototype是什么？？</strong></p>
+<ol>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">'abc12345'</span>;</span><br><span class="line"><span class="keyword">var</span> num=<span class="built_in">parseInt</span>(s);</span><br><span class="line"><span class="keyword">if</span>(num == <span class="literal">NaN</span>) &#123;</span><br><span class="line">  alert(<span class="string">'NaN'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> num == <span class="string">'number'</span>)&#123;</span><br><span class="line">  alert(<span class="string">'number'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(num == <span class="string">'abc'</span>)&#123;</span><br><span class="line">  alert(<span class="string">'abc'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(<span class="string">'str'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：number<br>因为parseInt解析一个字符串返回整数，虽然这里返回的是NaN，但是类型还是整数</p>
+</li>
+<li><p>cookie中的domain、path、expires、secure是什么意思,怎么用?</p>
+<ol>
+<li>path(路径):<br>指定与cookie关联的WEB页。<br>值可以是一个目录，或者是一个路径。<br>如果<a href="http://www.china.com/test/index.html" target="_blank" rel="external">http://www.china.com/test/index.html</a> 建立了一个cookie，那么在<a href="http://www.china.com/test/目录里的所有页面，以及该目录下面任何子目录里的页面都可以访问这个cookie。" target="_blank" rel="external">http://www.china.com/test/目录里的所有页面，以及该目录下面任何子目录里的页面都可以访问这个cookie。</a><br>这就是说，在<a href="http://www.china.com/test/test2/test3" target="_blank" rel="external">http://www.china.com/test/test2/test3</a> 里的任何页面都可以访问<a href="http://www.china.com/test/index.html建立的cookie。" target="_blank" rel="external">http://www.china.com/test/index.html建立的cookie。</a><br>但是，如果<a href="http://www.china.com/test/" target="_blank" rel="external">http://www.china.com/test/</a> 需要访问<a href="http://www.china.com/test/index.html设置的cookes，该怎么办？" target="_blank" rel="external">http://www.china.com/test/index.html设置的cookes，该怎么办？</a><br>这时，我们要把cookies的path属性设置成“/”。在指定路径的时候，凡是来自同一服务器，URL里有相同路径的所有WEB页面都可以共享cookies。</li>
+<li>Domain(域):<br>指定关联的WEB服务器或域。<br>值是域名，比如www.china.com。这是对path路径属性的一个延伸。如果我们想让 www.china.com能够访问bbs.china.com设置的cookies，该怎么办? 我们可以把domain属性设置成“china.com”，并把path属性设置成“/”。</li>
+<li>Secure(安全):<br>指定cookie的值通过网络如何在用户和WEB服务器之间传递。<br>这个属性的值或者是“secure”，或者为空。缺省情况下，该属性为空，也就是使用不安全的HTTP连接传递数据。如果一个 cookie 标记为secure，那么，它与WEB服务器之间就通过HTTPS或者其它安全协议传递数据。不过，设置了secure属性不代表其他人不能看到你机器本地保存的cookie。换句话说，把cookie设置为secure，只保证cookie与WEB服务器之间的数据传输过程加密，而保存在本地的 cookie文件并不加密。如果想让本地cookie也加密，得自己加密数据。</li>
+<li>Expires(过期时间):<br>指cookie的生命期，确切地说是过期日期。<br>如果想让cookie的存在期限超过当前浏览器的会话时间，就必须使用这个属性。当过了到期日期时，浏览器会自动删除cookie文件。</li>
+</ol>
+</li>
+<li><p>JS中的children和childNodes的区别<br>答：Node(节点)是DOM层次结构中的任何类型的对象的通用名称，Node有很多类型，如元素节点，属性节点，文本节点，注释节点等，通过NodeType区分。<br>Element继承了Node类，也就是说Element是Node多种类型中的一种，即当NodeType为1时Node即为ElementNode，另外Element扩展了Node，Element拥有id、class、children等属性。<br>而children就是element的属性，得到的是element<br>childNodes是node的属性，得到的是node(包含element)</p>
+</li>
+<li><p>用JS实现div元素倒序排列(灵活使用getElement和Child操作)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">"header"</span>).getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = obj.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">  arr.push(obj[i]);</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"header"</span>).removeChild(obj[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"header"</span>).appendChild(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTTP状态码500、404、400、304、302、301、200都表示什么意思</p>
+<ol>
+<li>500：内部服务器错误</li>
+<li>404：无法找到文件</li>
+<li>400：请求无效</li>
+<li>304：未修改，表示缓存是最新的，不更新，不返回网页的内容</li>
+<li>302：临时重定向，请求的网页被临时移动到其他位置，但请求者依然会向原有的地址进行请求。</li>
+<li>301：永久移动，请求的网页已经被移动到新的位置，但请求者会跳转到新的地址。</li>
+<li>200：访问成功</li>
+</ol>
+</li>
+<li><p>谈一谈Ajax的原理和处理机制</p>
+</li>
+</ol>
+<p>摘自：</p>
+<ol>
+<li><a href="http://www.cnblogs.com/bigboyLin/p/5272902.html" target="_blank" rel="external">2016年Web前端面试题目汇总 作者:_燎原之火</a></li>
+<li><a href="http://www.zhufengpeixun.cn/JavaScriptmianshiti/2014-02-26/252.html" target="_blank" rel="external">腾讯前端面试题整理</a></li>
+<li><a href="http://blog.csdn.net/milkiroom/article/details/50538649" target="_blank" rel="external">关于Cookie中的path、domain、expire、secure属性详述</a></li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -185,7 +220,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML/CSS"><span class="toc-number">1.</span> <span class="toc-text">HTML/CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number">2.</span> <span class="toc-text">JavaScript</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML/CSS"><span class="toc-number">1.</span> <span class="toc-text">HTML/CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number">2.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#腾讯面试题"><span class="toc-number">3.</span> <span class="toc-text">腾讯面试题</span></a></li></ol>
  
   </div>
 
@@ -227,7 +262,7 @@
 		  
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/前端/" title="前端">前端</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		</ul>
@@ -245,18 +280,33 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
 				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
 				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
+				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
+				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
@@ -270,8 +320,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
+				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li> -->
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5</a></li>
 			
 		
 			
@@ -280,8 +335,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp<sup>1</sup></a></li> -->
-				<li><a href="/tags/php-thinkphp/" title="php thinkphp">php thinkphp</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
 			
 		
 			
@@ -290,18 +345,18 @@
 			
 		
 			
-				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
-			
-		
-			
 				<!-- <li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html<sup>1</sup></a></li> -->
 				<li><a href="/tags/jQuery-html/" title="jQuery html">jQuery html</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/Axure/" title="Axure">Axure<sup>1</sup></a></li> -->
+				<li><a href="/tags/Axure/" title="Axure">Axure</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
+				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
 			
 		
 			
@@ -310,18 +365,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/文件读写/" title="文件读写">文件读写<sup>1</sup></a></li> -->
-				<li><a href="/tags/文件读写/" title="文件读写">文件读写</a></li>
-			
-		
-			
 				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
 				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
-				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
 			
 		
 		</ul>
