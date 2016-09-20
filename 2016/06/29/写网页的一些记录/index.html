@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/06/29/写网页的一些记录/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
 <meta property="og:description" content="记录一些我平时写网页的一些心得记录">
-<meta property="og:updated_time" content="2016-07-21T08:50:37.622Z">
+<meta property="og:updated_time" content="2016-08-31T02:25:24.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写网页的一些心得">
 <meta name="twitter:description" content="记录一些我平时写网页的一些心得记录">
@@ -113,6 +113,11 @@
 </li>
 <li><p>选择器的选择方法：$(‘.filterForm input[type!=”checkbox”][type!=”radio”]’).val(“”);<br>选择了除了type为checkbox和radio的所有input</p>
 </li>
+<li><p>id属性还可以用来导航，比如example.html中包含一个id为myelement的元素，那么href=”example.html#myelement”可以直接导航至此</p>
+</li>
+<li><h3 id="问题">问题</h3></li>
+<li>表格自适应宽度的问题<br>使用bootstrap的表格样式，单元格会随着内容的宽度进行自动改变，这一样式是怎么实现的，如何关闭</li>
+<li>元数据元素 流元素 短语元素 </li>
 </ol>
   
 	</div>
@@ -159,9 +164,9 @@
 
 
 <div class="next">
-<a href="/2016/06/27/js的一些记录/"  title="js的一些记录">
+<a href="/2016/06/23/在熟练使用2B铅笔前，请不要打开Axure/"  title="【转】在熟练使用2B铅笔前，请不要打开Axure">
  <strong>下一篇：</strong><br/> 
- <span>js的一些记录
+ <span>【转】在熟练使用2B铅笔前，请不要打开Axure
 </span>
 </a>
 </div>
@@ -176,7 +181,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li></ol>
  
   </div>
 
@@ -188,10 +193,6 @@
 <div class="categorieslist">
 	<p class="asidetitle">分类</p>
 		<ul>
-		
-		  
-			<li><a href="/categories/MVC/" title="MVC">MVC</a><span class="sup"><sup>1</sup><span></li>
-		  
 		
 		  
 			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
@@ -206,7 +207,7 @@
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		  
@@ -236,13 +237,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/js/" title="js">js<sup>2</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
@@ -251,8 +252,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
-				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
+				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
 			
 		
 			
@@ -261,8 +262,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
 			
 		
 			
@@ -271,13 +272,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
-				<li><a href="/tags/数组/" title="数组">数组</a></li>
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
 			
 		
 			
@@ -286,8 +287,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
 			
 		
 			
@@ -296,8 +297,23 @@
 			
 		
 			
+				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
+				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
+			
+		
+			
 				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
 				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
 			
 		
 			
@@ -311,23 +327,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
-				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
-				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
-				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
-				<li><a href="/tags/博客/" title="博客">博客</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
 			
 		
 		</ul>

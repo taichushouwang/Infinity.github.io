@@ -13,20 +13,26 @@
     
     <meta name="description" content="因为我是在H5出现之后才开始真正接触Web开发的。所以，还不知道H5相对于以前多了什么新的技术，在这里稍微记录一下
 
-webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用localStorage，挺方便，挺好用的东西。我经常用来在页面跳转中传递数据用（也不知道这样做规不规范）。但是有一点肯">
+重要H5的一个重要基本信念：将元素的语义与元素对其内容呈现结果的影响分开。就是要遵循语义开发。要有着一颗向着语义的心
+
+webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H5的新技术">
 <meta property="og:url" content="http://yoursite.com/2016/06/30/H5的新技术/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
 <meta property="og:description" content="因为我是在H5出现之后才开始真正接触Web开发的。所以，还不知道H5相对于以前多了什么新的技术，在这里稍微记录一下
 
-webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用localStorage，挺方便，挺好用的东西。我经常用来在页面跳转中传递数据用（也不知道这样做规不规范）。但是有一点肯">
-<meta property="og:updated_time" content="2016-06-30T03:16:33.984Z">
+重要H5的一个重要基本信念：将元素的语义与元素对其内容呈现结果的影响分开。就是要遵循语义开发。要有着一颗向着语义的心
+
+webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用">
+<meta property="og:updated_time" content="2016-08-31T02:13:20.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5的新技术">
 <meta name="twitter:description" content="因为我是在H5出现之后才开始真正接触Web开发的。所以，还不知道H5相对于以前多了什么新的技术，在这里稍微记录一下
 
-webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用localStorage，挺方便，挺好用的东西。我经常用来在页面跳转中传递数据用（也不知道这样做规不规范）。但是有一点肯">
+重要H5的一个重要基本信念：将元素的语义与元素对其内容呈现结果的影响分开。就是要遵循语义开发。要有着一颗向着语义的心
+
+webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用">
 
     
     <link rel="alternative" href="/atom.xml" title="Infinity&#39; s blog" type="application/atom+xml">
@@ -97,7 +103,32 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 		
 		<p>因为我是在H5出现之后才开始真正接触Web开发的。所以，还不知道H5相对于以前多了什么新的技术，在这里稍微记录一下</p>
 <ol>
-<li><strong>webStorage</strong><br>webStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用localStorage，挺方便，挺好用的东西。我经常用来在页面跳转中传递数据用（也不知道这样做规不规范）。但是有一点肯定是必然的，就是挺不安全的，在浏览器开发者工具下，你的所有localStorage都一览无余。而且在浏览器关闭之后，也无法清除。<br>当时还不知道有sessionStorage这个东西。但是sessionStorage只能存活在单一个页面中，也就是当新建一个页面之后，sessionStorage就不能共享使用了。</li>
+<li><p><strong>重要</strong><br>H5的一个重要基本信念：将元素的语义与元素对其内容呈现结果的影响分开。就是要遵循语义开发。要有着一颗向着语义的心</p>
+</li>
+<li><p><strong>webStorage</strong><br>webStorage包含了loacalStorage和sessionStorage，没想到这个就是一个H5的技术，我从开始前端开发就一直在使用localStorage，挺方便，挺好用的东西。我经常用来在页面跳转中传递数据用（也不知道这样做规不规范）。但是有一点肯定是必然的，就是挺不安全的，在浏览器开发者工具下，你的所有localStorage都一览无余。而且在浏览器关闭之后，也无法清除。<br>当时还不知道有sessionStorage这个东西。但是sessionStorage只能存活在单一个页面中，也就是当新建一个页面之后，sessionStorage就不能共享使用了。</p>
+</li>
+<li><p>新增了canvas元素，用于绘图</p>
+</li>
+<li><p>可以使用data-前缀设置我们需要的自定义属性(我没有用过)，但是看bootstrap用得很多。<br>可以使用dataset获取一个元素所有data-自定义属性</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"mobile"</span> data-<span class="built_in">id</span>=<span class="string">"25"</span> data-size=<span class="string">"5寸"</span> data-<span class="built_in">number</span>=<span class="string">"10"</span>&gt;¥<span class="number">6999</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">var mobile = document.getElementById('mobile');</span><br><span class="line">var <span class="built_in">id</span> = mobile.dataset.<span class="built_in">id</span>;</span><br><span class="line">var <span class="built_in">number</span> = mobile.dataset.<span class="built_in">number</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在input标签中，新增了type属性类型<br>有date, month, week, time, datetime, datetime-local, range, number, url, email, color, search<br>新增的一些使用过的属性，multiple(多文件上传),  placeholder(提示语), required(要求其值必须不为空)</p>
+</li>
+<li><p><a href="https://sallypanda.gitbooks.io/html5/content/html5/lesson7.html" target="_blank" rel="external">拖拽功能</a></p>
+</li>
+<li><p>新增了video和audio元素。(还未使用过)</p>
+</li>
+</ol>
+<p>注1：HTML5发展历程(来自<a href="https://sallypanda.gitbooks.io/html5/content/html5/lesson2.html" target="_blank" rel="external">GitBook的html5课程</a>)<br>  HTML5 是 W3C 与 WHATWG 合作的结果。</p>
+<ol>
+<li>HTML在1999年12月发布后就停止了更新， 之后W3C 专注于 XHTML 2.0。</li>
+<li>为了推动web标准化，一些公司在2004年组织了一个叫WHATWG的组织， 致力于 Web 表单和应用程序。</li>
+<li>2006年，双方决定进行合作，来创建一个新版本的 HTML。</li>
+<li>2007年W3C接纳WHATWG团队编写的HTML5标准,并成立了新的HTML工作团队。</li>
+<li>2008年1月22日，第一份正式草案发布。</li>
+<li>2012年12月17日W3C发布了HTML5的“候选推荐规范”，以及HTML5.1的首份规范草案。</li>
+<li>2013年5月6日， HTML 5.1 正式草案公布。</li>
+<li>2014年10月28日，W3C的HTML工作组正式发布了HTML5的正式推荐标准（W3C Recommendation）</li>
 </ol>
   
 	</div>
@@ -134,6 +165,14 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/09/07/js的一些记录/" title="js的一些记录">
+  <strong>上一篇：</strong><br/>
+  <span>
+  js的一些记录</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/06/29/写网页的一些记录/"  title="写网页的一些心得">
@@ -167,10 +206,6 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 		<ul>
 		
 		  
-			<li><a href="/categories/MVC/" title="MVC">MVC</a><span class="sup"><sup>1</sup><span></li>
-		  
-		
-		  
 			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
 		  
 		
@@ -183,7 +218,7 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		  
@@ -213,13 +248,13 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/js/" title="js">js<sup>2</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
@@ -228,8 +263,8 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
-				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
-				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
+				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
 			
 		
 			
@@ -238,8 +273,8 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
 			
 		
 			
@@ -248,13 +283,13 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
-				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
-				<li><a href="/tags/数组/" title="数组">数组</a></li>
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
 			
 		
 			
@@ -263,8 +298,8 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
 			
 		
 			
@@ -273,8 +308,23 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
+				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
+				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
+			
+		
+			
 				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
 				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
 			
 		
 			
@@ -288,23 +338,8 @@ webStoragewebStorage包含了loacalStorage和sessionStorage，没想到这个就
 			
 		
 			
-				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
-				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
-				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
-				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
-				<li><a href="/tags/博客/" title="博客">博客</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
 			
 		
 		</ul>

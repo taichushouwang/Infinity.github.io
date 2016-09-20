@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/25/前端面试/index.html">
 <meta property="og:site_name" content="Infinity' s blog">
 <meta property="og:description" content="前端面试题">
-<meta property="og:updated_time" content="2016-07-05T15:32:12.259Z">
+<meta property="og:updated_time" content="2016-09-07T15:27:04.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题">
 <meta name="twitter:description" content="前端面试题">
@@ -113,10 +113,12 @@
 <li><p>如何消除一个数组里面重复的元素</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一：</span></span><br><span class="line">  <span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">      arr2 = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr2.indexOf(arr1[i]) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      arr2.push(arr1[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.write(arr2); <span class="comment">//1,2,3,4,5,6</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>JavaScript代理<br>当我们需要对很多元素添加事件的时候，可以通过将事件添加到它们的父节点而将事件委托给父节点来触发处理函数。众所周知，DOM操作是十分消耗性能的。所以重复的事件绑定简直是性能杀手。而事件代理的核心思想，就是通过尽量少的绑定，去监听尽量多的事件。如何做呢?答案是利用事件冒泡机制,对其父节点ul进行事件绑定(Event Bubble),然后通过event.target来判断是哪个节点触发的事件，从而减少很多EventHandler的绑定。</p>
+</li>
 <li><p>如何实现一个对页面某个节点的拖拽(使用原生JS)</p>
 </li>
 </ol>
-<h2 id="腾讯面试题">腾讯面试题</h2><ol>
+<h3 id="腾讯面试题">腾讯面试题</h3><ol>
 <li>求输出<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.a = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn.prototype = &#123;</span><br><span class="line">  b: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.a = <span class="number">20</span>;</span><br><span class="line">      alert(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;,</span><br><span class="line">  c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.a = <span class="number">30</span>;</span><br><span class="line">      alert(<span class="keyword">this</span>.a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myfn = <span class="keyword">new</span> fn();</span><br><span class="line">myfn.b();</span><br><span class="line">myfn.c();</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -138,6 +140,8 @@
 <li><p>用JS实现div元素倒序排列(灵活使用getElement和Child操作)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">"header"</span>).getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = obj.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">  arr.push(obj[i]);</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"header"</span>).removeChild(obj[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"header"</span>).appendChild(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<h3 id="HTTP">HTTP</h3><ol>
 <li><p>HTTP状态码500、404、400、304、302、301、200都表示什么意思</p>
 <ol>
 <li>500：内部服务器错误</li>
@@ -151,12 +155,28 @@
 </li>
 <li><p>谈一谈Ajax的原理和处理机制</p>
 </li>
+<li><p>谈一下你对网页性能优化的方法(摘自3)<br>(1) 文件合并(减少HTTP请求数量)<br> CSS Sprites<br>  　  利用css sprites将网站用到的图片合并成一张图片，通过background-position、width、height控制背景图位置来使用某一个图标，这种方式可以将多个图片请求缩减为一次<br> 合并js和CSS文件<br>  　  将所有CSS文件合并成一个文件，并没有什么争议，但是对于JS来说，现在模块化盛行，合并不一定正确。(作者vicfeel说，正确的方式是遵守编译型语言的模式，保持js的模块化，在生成过程中只对初始请求用到的js文件生成目标文件。)<br>(2) 使用内容发布网络(减少HTTP请求时间)<br> 　  HTTP请求时间另一个影响因素是你与网站web服务器所处的距离，显然距离越远，请求所需的时间也越久，通过CDN可以大大改善这一点。<br> 　 CDN是分布在多个不同地理位置的web服务器，用于更加有效的向用户发布内容。CDN最主要的功能是给终端用户存放静态文件，另外也提供下载、安全服务等功能。<br>(3) 设置浏览器缓存(避免重复HTTP请求)<br>(4) 压缩组件(减小HTTP请求大小)<br> 　  通过对HTTP传输的文件进行压缩减小HTTP请求的大小，提高请求速度，GZIP是目前最常用也是最有效的压缩方式。<br>   　  然而，并非所有的资源文件都需要压缩，压缩的成本包括服务端需要花费CPU周期进行压缩，而客户端也需要对压缩文件进行解压缩，必须结合自己网站进行权衡。现在绝大多数网站都对其HTML文档进行压缩，部分网站选择对js、css进行压缩，几乎没有网站对图片、PDF等文件进行GZIP压缩，原因在于这些文件是已经被压缩过的，采用HTTP压缩已经被过压缩的东西并不能使它更小。事实上，添加标头，压缩字典，并校验响应体实际上使它变得更大，而且还浪费了CPU。</p>
+<pre><code> 　  如何对网站开启GZIP，需要在所使用的web服务器<span class="comment">(IIS、Nginx、Apache等)</span>中进行设置。
+</code></pre><p> (5) CSS文件放在首部</p>
+<pre><code> 　  将CSS文件放在首部和放在尾部，并不影响HTTP请求，因此从请求时间上来讲是一致的，然而从用户体验的角度，将CSS文件放在首部，会获得更好的用户体验。
+   原因在于浏览器是从上到下依次解析html文档，将CSS文件置于头部，页面会首先对CSS文件发出请求，随后加载DOM树并对其进行渲染，页面会逐步呈现在用户面前。
+ 　  而与之相反，如果将CSS文件放置在尾部，页面加载完整DOM之后请求CSS文件，然后对整个DOM树渲染并呈现给用户，从用户的角度，在css文件没有请求完成之前，整个页面是出于白屏状态的，白屏是浏览器的一种行为，David Hyatt对其的解释是这样的
+ 　　在样式树没有完全加载之前，渲染dom树就是一种浪费，因为在样式树加载完成之后会再次渲染，出现FOUC(无样式内容闪烁)问题。
+ 　  <span class="keyword">*</span><span class="keyword">*</span>另外要注意的一点<span class="keyword">*</span><span class="keyword">*</span> ，使用link而不是<span class="comment">@import引入css样式表，使用@import引入的样式即使写在首部，也会在文档最后加载。</span>
+</code></pre><p> (6)  JS文件放在尾部</p>
+<pre><code> 　  HTTP请求是并行的，不同浏览器并行下载的数目也不一样(<span class="number">2</span>、<span class="number">4</span>、或者<span class="number">8</span>个)，并行下载提高了HTTP请求的速度。而将<span class="keyword">JS</span>文件放在首部，不仅会阻塞后面文件的下载而且会阻塞页面的渲染。
+ 　  为什么会这样呢?原因有两个：
+ 　　<span class="keyword">JS</span>文件中可能存在document.write修改页面的内容，因此页面会在脚本执行完成之后才可使渲染。
+ 　　不同<span class="keyword">JS</span>文件不管大小如何，可能存在依赖关系，因此必须按照顺序进行执行，因此在加载脚本的时候并行下载是禁止的。
+ 　  所以，最好的方式是讲<span class="keyword">js</span>文件放置在尾部，等页面所有可视化组件加载完成之后再进行请求，提高用户体验。
+</code></pre></li>
 </ol>
 <p>摘自：</p>
 <ol>
 <li><a href="http://www.cnblogs.com/bigboyLin/p/5272902.html" target="_blank" rel="external">2016年Web前端面试题目汇总 作者:_燎原之火</a></li>
 <li><a href="http://www.zhufengpeixun.cn/JavaScriptmianshiti/2014-02-26/252.html" target="_blank" rel="external">腾讯前端面试题整理</a></li>
 <li><a href="http://blog.csdn.net/milkiroom/article/details/50538649" target="_blank" rel="external">关于Cookie中的path、domain、expire、secure属性详述</a></li>
+<li><a href="http://www.cnblogs.com/vicfeel/p/5702815.html" target="_blank" rel="external">前端面试题及答案整理（一）, 作者: vicfeel</a></li>
 </ol>
   
 	</div>
@@ -194,10 +214,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/01/MVC/" title="MVC笔记">
+ <a href="/2016/04/06/ThinkPHP相关记录/" title="ThinkPHP相关记录">
   <strong>上一篇：</strong><br/>
   <span>
-  MVC笔记</span>
+  ThinkPHP相关记录</span>
 </a>
 </div>
 
@@ -220,7 +240,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML/CSS"><span class="toc-number">1.</span> <span class="toc-text">HTML/CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number">2.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#腾讯面试题"><span class="toc-number">3.</span> <span class="toc-text">腾讯面试题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML/CSS"><span class="toc-number">1.</span> <span class="toc-text">HTML/CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number">2.</span> <span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#腾讯面试题"><span class="toc-number">2.1.</span> <span class="toc-text">腾讯面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP</span></a></li></ol></li></ol>
  
   </div>
 
@@ -232,10 +252,6 @@
 <div class="categorieslist">
 	<p class="asidetitle">分类</p>
 		<ul>
-		
-		  
-			<li><a href="/categories/MVC/" title="MVC">MVC</a><span class="sup"><sup>1</sup><span></li>
-		  
 		
 		  
 			<li><a href="/categories/MySQL/" title="MySQL">MySQL</a><span class="sup"><sup>1</sup><span></li>
@@ -250,7 +266,7 @@
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>1</sup><span></li>
+			<li><a href="/categories/js/" title="js">js</a><span class="sup"><sup>2</sup><span></li>
 		  
 		
 		  
@@ -280,13 +296,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
-				<li><a href="/tags/前端/" title="前端">前端</a></li>
+				<!-- <li><a href="/tags/js/" title="js">js<sup>2</sup></a></li> -->
+				<li><a href="/tags/js/" title="js">js</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
-				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
+				<!-- <li><a href="/tags/前端/" title="前端">前端<sup>2</sup></a></li> -->
+				<li><a href="/tags/前端/" title="前端">前端</a></li>
 			
 		
 			
@@ -295,8 +311,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
-				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
+				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
+				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
 			
 		
 			
@@ -305,8 +321,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/js/" title="js">js<sup>1</sup></a></li> -->
-				<li><a href="/tags/js/" title="js">js</a></li>
+				<!-- <li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li> -->
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL</a></li>
 			
 		
 			
@@ -315,13 +331,13 @@
 			
 		
 			
-				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
-				<li><a href="/tags/数组/" title="数组">数组</a></li>
+				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
 			
 		
 			
-				<!-- <li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li> -->
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo</a></li>
+				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
+				<li><a href="/tags/博客/" title="博客">博客</a></li>
 			
 		
 			
@@ -330,8 +346,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
-				<li><a href="/tags/Github/" title="Github">Github</a></li>
+				<!-- <li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li> -->
+				<li><a href="/tags/数组/" title="数组">数组</a></li>
 			
 		
 			
@@ -340,8 +356,23 @@
 			
 		
 			
+				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
+				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
+				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
+			
+		
+			
 				<!-- <li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端<sup>1</sup></a></li> -->
 				<li><a href="/tags/html-css-前端/" title="html css 前端">html css 前端</a></li>
+			
+		
+			
+				<!-- <li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse<sup>1</sup></a></li> -->
+				<li><a href="/tags/JAVA-eclipse/" title="JAVA eclipse">JAVA eclipse</a></li>
 			
 		
 			
@@ -355,23 +386,8 @@
 			
 		
 			
-				<!-- <li><a href="/tags/Web设计/" title="Web设计">Web设计<sup>1</sup></a></li> -->
-				<li><a href="/tags/Web设计/" title="Web设计">Web设计</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/正则表达式/" title="正则表达式">正则表达式<sup>1</sup></a></li> -->
-				<li><a href="/tags/正则表达式/" title="正则表达式">正则表达式</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/js-html-css/" title="js html css">js html css<sup>1</sup></a></li> -->
-				<li><a href="/tags/js-html-css/" title="js html css">js html css</a></li>
-			
-		
-			
-				<!-- <li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li> -->
-				<li><a href="/tags/博客/" title="博客">博客</a></li>
+				<!-- <li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li> -->
+				<li><a href="/tags/Github/" title="Github">Github</a></li>
 			
 		
 		</ul>
