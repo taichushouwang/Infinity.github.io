@@ -1,0 +1,12 @@
+php等比例压缩图片
+http://www.oschina.net/question/814955_115750
+http://www.yovae.com/blog/php%E7%AD%89%E6%AF%94%E4%BE%8B%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87.html
+
+PHP获取图片宽度等属性
+http://www.cnblogs.com/mybest/articles/1765978.html
+
+session
+http://www.cnblogs.com/binger/archive/2013/03/19/2970171.html
+
+localstorage
+http://www.cnblogs.com/xiaowei0705/archive/2011/04/19/2021372.html
