@@ -1470,6 +1470,9 @@ date: 2022-01-13 16:35:20
         3. 首部压缩，避免header的重复传输，本地缓存了相关的header，避免重复传输，浪费带宽
         4. 服务端推送（Server Push）
     3. HTTPS
+    4. HTTP3.0
+        1. 基于UDP传输
+        2. QUIC协议
 
 ## 4. socket长连接
     server的生命周期大致如下：
@@ -1656,4 +1659,15 @@ date: 2022-01-13 16:35:20
 从手机到互联网，需要怎么学习和发展
 都用了哪些流行的插件
 
-https://juejin.cn/post/6981056016897015838
+协程切换：https://juejin.cn/post/6981056016897015838
+虚拟内存：https://www.jianshu.com/p/b34ecdfa94b5
+HTTP：https://zhuanlan.zhihu.com/p/342311013
+
+
+项目亮点和难点
+1.表格
+2.MPAndroid
+3.拦截器刷新token
+4.筛选框
+5.组件化
+6.依赖注入
